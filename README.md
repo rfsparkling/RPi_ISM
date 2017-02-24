@@ -1,33 +1,21 @@
 ![layout preview](https://github.com/rfsparkling/RPi_ISM/blob/master/top.png)
 
-This is my evaluation board for interfacing Telit SE880 GPS chip module with EFM32LG-STK3600 EFM32 Leopard Gecko Starter Kit.
+RPi ISM is a ISM radio shield / module for all the RaspberryPi versions. The schematic finished the layout is about 90% finished yet.
 
-I had lot of trouble during the SE880 chip module manufacturing, forget hot air blower! This is a 3D chip module with embedded parts, like capacitors, resistors, etc.
-You need to follow the exact heat profile provided by Telit in tha datasheet. So using an SMT heat oven is highly recommended! 
-
-My PCB is assembled (by professional contract manufacturer) and I confirm: it works! The parts are correct.
-
-I have assambled PCBs to sell, please contact me about the details!
 
 Validated Eagle Parts in this project:
-Telit SE880
-http://www.telit.com/products/product-service-selector/product-service-selector/show/product/jupiter-se880/
+Silabs ISM radio
+Si4463-B1B-FM
+https://www.silabs.com/documents/public/data-sheets/Si4464-63-61-60.pdf
 
-EFM32LG-STK3600 interface connector, pinhead connector
-https://www.silabs.com/products/mcu/lowpower/Pages/efm32lg-stk3600.aspx
+SAW filter
+B39871B3725U410
+http://www.mouser.com/ds/2/400/B3725-525464.pdf
 
-TI TXS0108E 
-8-Bit Bidirectional Voltage-Level Shifter For Open-Drain And Push-Pull Application
-http://www.ti.com/product/txs0108e
+TCXO
+KT2520F26000ACW18TAN
+http://www.mouser.com/ds/2/40/kt2520_gps_e_2012-838160.pdf
 
-TI LP5907
-250mA, Ultra-Low Noise Low-Dropout Regulator
-http://www.ti.com/product/LP5907
-
-AVX / Kyocera
-TCXO Oscillators 16.369MHz 1.8Volts 2.5mmx2mm Sine Wave
-http://www.mouser.co.uk/Search/Refine.aspx?Keyword=581-KT2520F16ACW18T
-
-Abracon 
-ABS06-32.768KHZ-T XTAL
-http://www.digikey.com/product-detail/en/ABS06-32.768KHZ-T/535-10104-1-ND/2089921
+RF switch
+UPG2214TB-A
+http://www.cel.com/pdf/datasheets/upg2214tb.pdf
