@@ -4,6 +4,7 @@ RPi ISM is a ISM radio shield / module for all the RaspberryPi versions. The sch
 
 
 Validated Eagle Parts in this project:
+
 Silabs ISM radio
 Si4463-B1B-FM
 https://www.silabs.com/documents/public/data-sheets/Si4464-63-61-60.pdf
