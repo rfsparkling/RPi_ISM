@@ -1,0 +1,171 @@
+#productMainImageNew {
+    cursor:pointer;
+}
+#mainImageArea.iz-activated {
+    height:auto;
+    cursor:pointer;
+}
+
+.iz-clicktozoom {
+    color:#333;
+    text-align:center;
+    padding:14px 0;
+    margin:0;
+    line-height:0
+}
+p.iz-clicktozoom:hover {
+    text-decoration: underline;
+}
+.iz-clicktozoom span {
+    background-image: url("../../images/common/ui/zoom-icon.gif");
+    background-repeat: no-repeat;
+    background-position: left center;
+    padding: 16px 16px;
+}
+
+#iz-wrap {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    z-index: 9999;
+    top:0;
+    left:0;
+}
+#iz-overlay {
+    z-index:0;
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    padding-top:20px;
+    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=50)";
+    filter: alpha(opacity=50);
+    background: url('../../images/ui/trans-bl.png') repeat 0 0;
+    background:rgba(0,0,0,.5);
+}
+.dj_ie7 #iz-overlay,
+.dj_ie8 #iz-overlay {
+     background:black !important;   
+}
+#iz-close {
+    float:right;
+    font-size:12px
+}
+
+#iz-close span {
+    margin-right:3px;
+    margin-top:1px
+}
+
+.iz-container {
+    width:960px;
+    margin:20px auto 0;
+    padding:12px;
+    overflow:hidden;
+    background:#fff;
+    border:1px solid #007fac;
+    box-shadow:0 0 20px #222;
+    border-radius:10px;
+    position:relative;
+    z-index: 2;
+}
+
+.iz-main {
+    background:#fff;
+    width:70%;
+    margin:0 auto;
+    height:480px;
+    padding:12px;
+    position:relative;
+    overflow:hidden
+}
+
+.iz-main.loading {
+    /* Need loader icon from UX */
+    background:#fff url(../../images/common/ui/ajaxloader-farnell-grey.gif) no-repeat center center;
+}
+
+#zoomImg {
+    position:static;
+    max-width:none;
+    margin:0 auto;
+    display:block
+}
+
+#zoomImg.portrait {
+    height:100%;
+    width:auto;
+}
+
+#zoomImg.landscape {
+    width:100%;
+    height:auto
+}
+#zoomImg.square {
+    height:90%;
+    width:auto;
+}
+
+.iz-library {
+    width:24%;
+    margin:0 auto auto -12px;
+    background:#fff;
+    float:left;
+    padding:12px;
+    overflow:hidden;
+    padding-left:-12px;
+}
+.iz-library div#productDescription,
+.iz-library .iz-thumb-wrapper {
+    margin: auto auto 12px 12px;
+}
+.iz-library div#productDescription {
+    border:1px solid #eee;
+    width:91%;
+    padding-top:12px
+}
+
+.iz-library div#productDescription img {
+    margin:0
+}
+
+.iz-library img {
+    cursor:pointer;
+}
+
+.iz-zoomin {
+    cursor: zoom-in;
+}
+
+.iz-zoomout {
+    cursor: zoom-out;
+}
+
+.iz-library .iz-thumb-wrapper {
+    border:solid 1px #f8f8f8;
+    height:40px;
+    width:40px;
+    float:left;
+    text-align: center;
+}
+.iz-library .iz-thumb-wrapper.landscape img { width:100%; height:auto; }
+.iz-library .iz-thumb-wrapper.portrait img { height:100%; width:auto; }
+.iz-library .iz-thumb-wrapper.square img { height: 90%; width:auto; }
+
+.iz-library .iz-thumb-wrapper:hover {
+    border:solid 1px #007fac
+}
+
+.iz-library .iz-thumb-wrapper.active {
+    border:solid 1px #f17c03
+}
+
+.iz-column {
+    background:#fff;
+    float:left
+}
+
+/* Hide 360 and Play Video temporarily */
+#iz-wrap #view360Button { display: none !important; }
+#iz-wrap #mk-show-media-video-1 { display: none !important; }

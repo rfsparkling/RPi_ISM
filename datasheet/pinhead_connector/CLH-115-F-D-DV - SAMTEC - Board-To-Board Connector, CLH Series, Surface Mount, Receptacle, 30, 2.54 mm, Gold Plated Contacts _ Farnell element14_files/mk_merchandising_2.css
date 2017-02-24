@@ -1,0 +1,108 @@
+/*
+   Europe Merchandising CSS
+   /css/europe/mk-merchandising-n.css
+   extends
+   /css/common/mk_merchandising.css
+*/
+
+/* Start - Tektronix transition banner */
+.mk-tektronix-scopes {
+	background-image:url(/wcsstore/ExtendedSitesCatalogAssetStore/cms/asset/images/europe/common/multiuse_banners/tektronix-lecroy-banner.png);
+	background-repeat:no-repeat;
+	background-position:50% 42px!important;
+}
+
+.mk-full-link-banners.mk-tektronix-scopes { padding:12px; }
+.mk-full-link-banners.mk-tektronix-scopes h3 { margin-top:135px; font-weight:700; }
+.mk-full-link-banners.mk-tektronix-scopes p { display:inline; }
+/* End - Tektronix transition banner */
+
+/* Start - Tektronix mdo3000 */
+.mk-tektronix-mdo3000-bg {
+    background:#F9F9F9 url(/wcsstore/ExtendedSitesCatalogAssetStore/cms/asset/images/europe/common/storefront_banners/tektronix-mdo3000.png);
+    background-repeat:no-repeat;
+    background-position:bottom!important;
+}
+/* End - Tektronix mdo3000 */
+
+/* Start - TE Connectivity Price Watch */
+.mk-price-watch { background-repeat:no-repeat; background-position:50% 75px!important; }
+.mk-price-watch-at { background-image:url(/wcsstore/ExtendedSitesCatalogAssetStore/cms/asset/images/europe/common/multiuse_banners/te-price-watch.png);background-position:50% 92px; }
+.mk-price-watch-de { background-image:url(/wcsstore/ExtendedSitesCatalogAssetStore/cms/asset/images/europe/common/multiuse_banners/te-price-watch.png);background-position:50% 92px; }
+.mk-price-watch-fr { background-image:url(/wcsstore/ExtendedSitesCatalogAssetStore/cms/asset/images/europe/common/multiuse_banners/te-price-watch.png); }
+.mk-price-watch-it { background-image:url(/wcsstore/ExtendedSitesCatalogAssetStore/cms/asset/images/europe/common/multiuse_banners/te-price-watch.png); }
+.mk-price-watch-uk { background-image:url(/wcsstore/ExtendedSitesCatalogAssetStore/cms/asset/images/europe/common/multiuse_banners/te-price-watch.png); }
+.mk-full-link-banners.mk-price-watch { padding:12px; }
+.mk-full-link-banners.mk-price-watch h3 { margin-top:39px; font-size:1.6em;font-weight:700; }
+.mk-full-link-banners.mk-price-watch h4 { color:#ff0000; margin-top:90px; }
+.mk-full-link-banners.mk-price-watch .mk-mock-btn-subtle { padding:6px;	}
+/* End - TE Connectivity Price Watch */
+
+/* Start - Advent banner '14 / remove 05/01/15  */
+.mk-advent-merch-banner{
+     background-image: url(/wcsstore/ExtendedSitesCatalogAssetStore/cms/asset/images/europe/common/campaign/advent/advent-gen-merch-banner-back.jpg);
+	 background-repeat:no-repeat;background-position:bottom center;
+     width:auto;height:230px;
+     border:solid 1px #b3b3b3;
+}
+.mk-advent-merch-banner h2 { color:#FFF !important; font-size:1.9em !important; text-align:center; margin-top:24px; margin-bottom:12px !important; }
+.mk-advent-merch-banner p { color:#FFF !important;text-align:center; }
+.mk-advent-merch-banner .mk-primary-btn { margin-top:3px; margin-bottom:44px; margin-left:35px; }
+/* End - Advent banner '14 / remove 05/01/15  */
+
+/* Start Dev kits banner */
+.mk-hp-devkits-hq-img {
+	background-image: url(/wcsstore/ExtendedSitesCatalogAssetStore/cms/asset/images/common/multiuse_banners/hp-devkits-hq.jpg);
+}
+/* End Dev kits banner */
+
+/* Start Design Center */
+.mk-merch-design-center-en {
+  background: url(/wcsstore/ExtendedSitesCatalogAssetStore/cms/asset/images/common/multiuse_banners/design-center-bnr-en.jpg) bottom center no-repeat #F9F9F9;
+  padding-bottom: 160px;
+}
+.mk-merch-design-center-en h2 {
+  line-height: 20px!important;
+}
+.mk-design-center-beta-superscript {
+  font-size: 0.5em;
+  color: #F17C0E!important;
+}
+/* End Design Center */
+
+
+/* START Checkout proposition banner */
+#mk-toggle {  width:auto; overflow:hidden; border: 1px solid #CCC; padding: 5px; }
+
+#mk-toggle-button-1, #mk-toggle-button-2, #mk-toggle-button-3,
+#mk-toggle-button-4, #mk-toggle-button-5, #mk-toggle-button-6 {
+    background-image:url(/wcsstore/ExtendedSitesCatalogAssetStore/cms/asset/images/europe/common/prop-sprites.gif);
+    background-repeat:no-repeat;
+    background-position:bottom right;}
+
+.mk-toggle-button-content {
+    background-image:url(/wcsstore/ExtendedSitesCatalogAssetStore/cms/asset/images/europe/common/campaign/key-proposition/key-proposition-icons-100-sprite.png);
+    background-position-x: -105px; background-repeat:no-repeat; }
+
+.mk-toggle-panel {  cursor:pointer; margin-bottom:0; }
+.mk-toggle-button {  background-color:#ffffff; }
+.mk-toggle-button-content { padding:6px 3px 0 38px; margin-bottom:0; }
+.mk-toggle-button-content h3 { font-weight: bold; font-size:1.15em; color: #333; margin-bottom: 1px; }
+.mk-toggle-button-content p { margin-bottom:0; letter-spacing:-0.01em; }
+.mk-toggle-content { background-color: #f7f7f7; padding:6px; }
+.mk-toggle-content h4 { margin-bottom:3px; }
+.mk-toggle-content p { margin-bottom:9px; }
+.mk-toggle-button-content span, .mk-toggle-content span { color: #f17c0e !important;}
+.mk-toggle-footnote { font-size: 0.83em !important; line-height: 1.4em !important;}
+
+#mk-toggle hr { margin:0; padding:0; border-top: 1px solid #dadada;  }
+.mk-col-100 .mk-toggle-panel .mk-toggle-content ul.mk-impact-ul-sm li { background-position:3px 6px!important; }
+
+.mk-key-prop-position1 { background-position:-9px 5px !important; }
+.mk-key-prop-position2 { background-position:-9px -100px !important; }
+.mk-key-prop-position3 { background-position:-9px -200px !important; }
+.mk-key-prop-position4 { background-position:-9px -300px !important; }
+.mk-key-prop-position5 { background-position:-9px -400px !important; }
+.mk-key-prop-position6 { background-position:-9px -500px !important; }
+
+/* END Checkout proposition banner */

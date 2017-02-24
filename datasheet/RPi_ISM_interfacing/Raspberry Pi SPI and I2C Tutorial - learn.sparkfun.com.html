@@ -1,0 +1,1509 @@
+<!DOCTYPE html>
+<!-- saved from url=(0070)https://learn.sparkfun.com/tutorials/raspberry-pi-spi-and-i2c-tutorial -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+          <meta name="viewport" content="width=device-width, initial-scale=1"> <!-- mobile mode if small screen device -->
+    
+    <title>Raspberry Pi SPI and I2C Tutorial - learn.sparkfun.com</title>
+
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <link href="./Raspberry Pi SPI and I2C Tutorial - learn.sparkfun.com_files/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="./Raspberry Pi SPI and I2C Tutorial - learn.sparkfun.com_files/theme.github.css" type="text/css" media="screen">    <link rel="alternate" type="application/atom+xml" title="Education Blog" href="https://learn.sparkfun.com/feeds/blog">
+    <link rel="alternate" type="application/atom+xml" title="Tutorials" href="https://learn.sparkfun.com/feeds/tutorials">
+    <link rel="alternate" type="application/atom+xml" title="Education Blog Comments" href="https://learn.sparkfun.com/feeds/blog_comments">
+    <link rel="alternate" type="application/atom+xml" title="Tutorial Comments" href="https://learn.sparkfun.com/feeds/tutorial_comments">
+
+    <script type="text/javascript">
+          var SFECONFIG = {
+      currencies: {"USD":{"code":"USD","title":"US Dollar","symbol_left":"$","symbol_right":"","decimal_point":".","thousands_point":",","decimal_places":"2","value":"1.0000"},"CAD":{"code":"CAD","title":"Canadian Dollar","symbol_left":"$","symbol_right":" CAD","decimal_point":".","thousands_point":",","decimal_places":"2","value":"1.3317"},"AUD":{"code":"AUD","title":"Australian Dollar","symbol_left":"$","symbol_right":" AUD","decimal_point":".","thousands_point":",","decimal_places":"2","value":"1.4045"},"GBP":{"code":"GBP","title":"British Pound","symbol_left":"&pound;","symbol_right":"","decimal_point":".","thousands_point":",","decimal_places":"2","value":"0.6583"},"EUR":{"code":"EUR","title":"Euro","symbol_left":"&euro;","symbol_right":"","decimal_point":".","thousands_point":",","decimal_places":"2","value":"0.9285"}},
+      dnt: true,
+      preferred_currency: 'USD',
+        http_server: 'http://www.sparkfun.com',
+        https_server: 'https://www.sparkfun.com',
+        http_static: 'https://cdn.sparkfun.com',
+        base_url: '/',
+        url: '/',
+        controller: 'tutorials',
+        action: 'view',
+        entity_id: '',
+        auth: false,
+        sparkrev: '1447364910',
+        search_key: 'qLqN6uVRKXnjHd2QapGm'      };
+      var require = {
+        paths: {
+          'jqueryui': 'https://ajax.googleapis.com/ajax/libs/jqueryui/1.10.4/jquery-ui.min'
+        },
+        baseUrl: '/js/',
+        urlArgs: "sparkrev=" + SFECONFIG.sparkrev,
+        deps: ['jqueryui'],
+        callback: function() {
+          $('#learn').learn();
+          $('#learn').sfeutil();
+        }
+      };
+    </script><style type="text/css"></style>
+    <script src="./Raspberry Pi SPI and I2C Tutorial - learn.sparkfun.com_files/learn-built.js"></script>
+      <script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="jqueryui" src="./Raspberry Pi SPI and I2C Tutorial - learn.sparkfun.com_files/jquery-ui.min.js"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="tutorial" src="./Raspberry Pi SPI and I2C Tutorial - learn.sparkfun.com_files/tutorial.js"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="jquery.imagesloaded" src="./Raspberry Pi SPI and I2C Tutorial - learn.sparkfun.com_files/jquery.imagesloaded.js"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="rainbow" src="./Raspberry Pi SPI and I2C Tutorial - learn.sparkfun.com_files/rainbow.js"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="generic" src="./Raspberry Pi SPI and I2C Tutorial - learn.sparkfun.com_files/generic.js"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="c" src="./Raspberry Pi SPI and I2C Tutorial - learn.sparkfun.com_files/c.js"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="ZeroClipboard.min" src="./Raspberry Pi SPI and I2C Tutorial - learn.sparkfun.com_files/ZeroClipboard.min.js"></script></head>
+
+  <body id="learn" class="layout-default no-type tutorials-view no-touch" ontouchstart="">
+    <div class="wrapper" itemscope="" itemtype="http://schema.org/WebSite">
+      <meta itemprop="url" content="https://www.sparkfun.com/">
+      <div class="wrapper-inner">
+
+    
+<div class="header">
+  <div class="container">
+
+<!-- Mobile Nav Button -->
+<div class="mobile-menu-container left">
+  <a id="nav_toggle" class="mobile-menu-button nav_toggle" href="https://learn.sparkfun.com/tutorials/raspberry-pi-spi-and-i2c-tutorial#"><span>≡</span></a>
+      <a id="search_toggle" class="mobile-menu-button" href="https://learn.sparkfun.com/tutorials/raspberry-pi-spi-and-i2c-tutorial#"><span class="glyphicon glyphicon-search"></span></a>
+  </div>
+
+<nav class="top-links">
+  &nbsp;
+</nav>
+
+<!-- Logo -->
+<div class="logo-container">
+  <a class="logo" href="https://www.sparkfun.com/">
+    <span class="sfe-icon-flame"></span>
+    <span class="sfe-icon-sparkfun" data-icon="🔥">
+      <span class="visuallyhidden">sparkfun.com</span>
+    </span>
+  </a>
+</div>
+
+<!-- Tabs -->
+<!-- also edit mobile tabs in .main-nav -->
+<nav class="tabs-container">
+  <ul>
+    <li class="shop "><a href="https://www.sparkfun.com/">Shop</a></li>
+    <li class="learn active"><a href="https://learn.sparkfun.com/">Learn</a></li>
+    <li class="avc "><a href="https://avc.sparkfun.com/"><span class="sfe-icon-avc"><span class="visuallyhidden">AVC</span></span></a></li>
+    <li class="forum "><a href="https://forum.sparkfun.com/">Forum</a></li>
+    <li class="data "><a href="https://data.sparkfun.com/">Data</a></li>
+  </ul>
+</nav>
+
+<!-- Cart & User -->
+<div class="user-container mobile-menu-container right">
+
+  <a id="account_toggle" class="mobile-menu-button" href="https://learn.sparkfun.com/tutorials/raspberry-pi-spi-and-i2c-tutorial#"><span class="glyphicon glyphicon-user"></span></a>
+
+  
+      <div class="user">
+      <!-- login modal trigger -->
+      <a class="btn btn-default" href="https://www.sparkfun.com/account/login?redirect=%2Flearn%2Ftutorials%2Fraspberry-pi-spi-and-i2c-tutorial" data-toggle="modal" data-target="#login_modal" data-remote="false">log in</a>
+      <a class="btn btn-default" href="https://www.sparkfun.com/account/make">register</a>    </div>
+  
+</div>
+
+<!-- Navigation / Search -->
+<div class="main-nav-container">
+
+  <nav class="main-nav">
+    <ul>
+      <li class="tab shop ">
+        <a href="https://www.sparkfun.com/">Shop</a>      </li>
+      <li class="tab learn active">
+        <a href="https://learn.sparkfun.com/">Learn</a>      </li>
+      
+<li class="start-a-project ">
+  <a href="https://learn.sparkfun.com/start_a_project">Start a Project</a></li>
+<li><a href="https://learn.sparkfun.com/blog">EDU Blog</a></li>
+<li><a href="https://learn.sparkfun.com/resources">Resources</a></li>
+<li class="active"><a href="https://learn.sparkfun.com/tutorials">Tutorials</a></li>
+<li><a href="https://learn.sparkfun.com/events">Classes</a></li>
+<li><a href="https://learn.sparkfun.com/calendar">Calendar</a></li>
+<li><a href="https://learn.sparkfun.com/workshops">Workshops</a></li>
+<li><a href="https://learn.sparkfun.com/contact">Contact</a></li>
+
+      <li class="desktop-toggle">
+        <a href="https://www.sparkfun.com/account/mobile_toggle?redirect=%2Flearn%2Ftutorials%2Fraspberry-pi-spi-and-i2c-tutorial">Desktop Site</a>      </li>
+    </ul>
+  </nav>
+
+      <form id="search_form" class="search" action="https://www.sparkfun.com/search/results" method="get" itemprop="potentialAction" itemscope="" itemtype="http://schema.org/SearchAction">
+      <meta itemprop="target" content="https://www.sparkfun.com/search/results?term={term}">
+      <div class="ui-widget">
+        <span role="status" aria-live="polite" class="ui-helper-hidden-accessible"></span><input name="term" id="global-search" class="form-control ui-autocomplete-input" type="text" value="" placeholder="search..." itemprop="query-input" autocomplete="off">
+      </div>
+    </form>
+  
+</div>
+
+  </div>
+</div>
+
+
+    
+    <div class="content">
+      <div class="container">
+
+        
+        <div class="main-title">
+  <ul class="breadcrumb">
+    <li><a href="https://learn.sparkfun.com/">Home</a></li>
+    <li><a href="https://learn.sparkfun.com/tutorials">Tutorials</a></li>
+    <li>Raspberry Pi SPI and I2C Tutorial</li>
+      </ul>
+
+  <h1>
+    Raspberry Pi SPI and I2C Tutorial  </h1>
+
+</div>
+
+
+<a id="nav_toggle_pages" class="nav_toggle" href="https://learn.sparkfun.com/tutorials/raspberry-pi-spi-and-i2c-tutorial#"><span>≡</span> Pages</a>
+
+<div id="tutorial" class="row">
+
+  <div class="col-sm-8" id="sections">
+
+    <div class="contributors">
+                      Contributors:
+                <a href="https://www.sparkfun.com/users/468760"><img src="./Raspberry Pi SPI and I2C Tutorial - learn.sparkfun.com_files/d069e186dea25a3b82d74ef824716693"> Byron J.</a>          </div>
+
+    <span class="fave_widget verbose">
+  <a href="https://learn.sparkfun.com/tutorials/raspberry-pi-spi-and-i2c-tutorial#" class="fave_btn " title="Add to favorites" data-entity="learn_tutorials" data-entity-id="449">
+    <span class="fave_yes">
+      <span class="glyphicon glyphicon-heart"></span>
+      <span class="name">Favorited</span>
+    </span>
+    <span class="fave_no">
+      <span class="glyphicon glyphicon-heart-empty"></span>
+      <span class="name">Favorite</span>
+    </span>
+  </a>
+  <span class="fave_count">0</span>
+</span>    <div class="share-link-inline">
+
+  <a class="share-link-toggle" href="https://learn.sparkfun.com/tutorials/raspberry-pi-spi-and-i2c-tutorial#">
+    <span class="share-title">
+      <span class="sfe-icon-share"></span>
+      Share    </span>
+  </a>
+
+  <div class="share-link-inner dialog">
+    Use this URL to share:<br>
+    <input class="form-control input-sm" type="text" value="http://sfe.io/t449" onclick="$(this).select();">
+
+    <div class="share-social">
+
+      <a rel="nofollow" onclick="return $(this).sfeutil(&#39;track_link&#39;,this,&#39;Share&#39;,&#39;clicked&#39;,&#39;googleplus&#39;);" href="https://plus.google.com/share?url=http%3A%2F%2Fsfe.io%2Ft449" title="Share on Google+"><span class="sfe-icon-google-plus hidetext"><span>Share on Google+</span></span></a>
+
+      <a rel="nofollow" onclick="return $(this).sfeutil(&#39;track_link&#39;,this,&#39;Share&#39;,&#39;clicked&#39;,&#39;tumblr&#39;);" href="https://www.tumblr.com/share/link?url=http%3A%2F%2Fsfe.io%2Ft449&name=Raspberry+Pi+SPI+and+I2C+Tutorial" title="Share on Tumblr"><span class="sfe-icon-tumblr hidetext"><span>Share on Tumblr</span></span></a>
+
+      <a rel="nofollow" onclick="return $(this).sfeutil(&#39;track_link&#39;,this,&#39;Share&#39;,&#39;clicked&#39;,&#39;reddit&#39;);" href="https://www.reddit.com/submit?url=http%3A%2F%2Fsfe.io%2Ft449" title="Submit to reddit"><span class="sfe-icon-reddit hidetext"><span>Submit to reddi</span></span></a>
+
+    </div>
+
+    </div>
+  
+  <div class="share-social">
+
+    <a rel="nofollow" onclick="return $(this).sfeutil(&#39;track_link&#39;,this,&#39;Share&#39;,&#39;clicked&#39;,&#39;twitter&#39;);" href="https://twitter.com/intent/tweet?text=Raspberry+Pi+SPI+and+I2C+Tutorial&url=http%3A%2F%2Fsfe.io%2Ft449&via=sparkfun" title="Share on Twitter"><span class="sfe-icon-twitter hidetext"><span>Share on Twitter</span></span></a>
+
+    <a rel="nofollow" onclick="return $(this).sfeutil(&#39;track_link&#39;,this,&#39;Share&#39;,&#39;clicked&#39;,&#39;facebook&#39;);" href="http://www.facebook.com/sharer.php?u=http%3A%2F%2Fsfe.io%2Ft449&t=Raspberry+Pi+SPI+and+I2C+Tutorial" title="Share on Facebook"><span class="sfe-icon-facebook-nobox hidetext"><span>Share on Facebook</span></span></a>
+
+          <a rel="nofollow" onclick="return $(this).sfeutil(&#39;track_link&#39;,this,&#39;Share&#39;,&#39;clicked&#39;,&#39;pinterest&#39;);" href="https://www.pinterest.com/pin/create/button/?url=http%3A%2F%2Fsfe.io%2Ft449&media=https%3A%2F%2Fcdn.sparkfun.com%2F%2Fr%2F500-1000%2Fassets%2Flearn_tutorials%2F4%2F4%2F9%2Fwedge-n-pi.jpg&description=Raspberry+Pi+SPI+and+I2C+Tutorial" title="Pin It"><span class="sfe-icon-pinterest hidetext"><span>Pin It</span></span></a>
+    
+  </div>
+
+  
+</div>
+
+          <div class="section tutorial-page">
+        <h2 id="introduction">Introduction</h2>
+        <p>There are many peripherals that can be added to a microprocessor over the I2C and SPI serial interfaces.  These include <a href="https://www.sparkfun.com/products/13676">atmospheric sensors</a>, <a href="https://www.sparkfun.com/products/525">EEPROMS</a>, and <a href="https://www.sparkfun.com/products/11441">several</a> <a href="https://www.sparkfun.com/products/13279">types</a> of <a href="https://www.sparkfun.com/products/13003">display</a>.</p>
+
+<p style="text-align:center;"> <a href="https://cdn.sparkfun.com/assets/learn_tutorials/4/4/9/wedge-n-pi.jpg"><img src="./Raspberry Pi SPI and I2C Tutorial - learn.sparkfun.com_files/wedge-n-pi.jpg" alt="alt text"></a></p>
+
+<p style="text-align:center;"> <em>The Pi Wedge helps access the I2C and SPI signals.</em></p>
+
+<p>This tutorial will walk you through getting the I2C and SPI interfaces of your Raspberry Pi working.  These interfaces aren’t enabled by default, and need some extra configuration before you can use them.</p>
+
+<h3>Recommended Reading</h3>
+
+<p>Before we get started, you might want to review some related background material.</p>
+
+<ul>
+<li><a href="https://learn.sparkfun.com/tutorials/i2c">I2C</a> is a useful bus that allows data exchange between microcontrollers and peripherals with a minimum of wiring.</li>
+<li><a href="https://learn.sparkfun.com/tutorials/serial-peripheral-interface-spi">SPI</a> is a cousin of I2C with similar applications.</li>
+<li>We’ll be using the <a href="http://wiringpi.com/">wiringPi</a> library to interface with these buses.</li>
+</ul>
+      </div>
+          <div class="section tutorial-page">
+        <h2 id="background--software-setup">Background &amp; Software Setup</h2>
+        <p>The Raspberry Pi has three types of serial interface on the GPIO header.  You’re probably already familiar with the UART serial port, which allows you to open a login session from a serial terminal application, such as <a href="http://www.putty.org/">PuTTY</a>.</p>
+
+<p>The other two serial interfaces are the Serial Peripheral Interface (<strong>SPI</strong>) and Inter-Integrated-Circuit bus (<strong>I2C</strong>).  <a href="https://learn.sparkfun.com/tutorials/serial-peripheral-interface-spi">SPI</a> on the Pi allows for up to two attached devices, while <a href="https://learn.sparkfun.com/tutorials/i2c">I2C</a> potentially allows for many devices, as long as their addresses don’t conflict.</p>
+
+<h3>Software Details</h3>
+
+<p>The software landscape for the Raspberry Pi has evolved considerably since the introduction of the Pi.  Many different operating systems have been ported to the Pi, and the device driver infrastructure has also changed quite a bit.</p>
+
+<p>For this tutorial, we’ll be using a recent version of Raspbian (installed via NOOBS), and the wiringPi I/O library.</p>
+
+<p>With the implementation of device tree overlays in Raspbian, some of the specific interface enablement details have changed.  If you’re working with an older install, it might be worth backing up your SD card, and starting with a fresh install.</p>
+
+<h4>OS and Library Install</h4>
+
+<p>If you’re starting from scratch, with a blank SD card, you’ll want to install Raspbian.  If you’ve already got a working Raspbian system, skip ahead to step 3.</p>
+
+<ol>
+<li>Download the <a href="https://www.raspberrypi.org/downloads/noobs/">NOOBS</a> image.  As of this writing, it’s at version 1.4.2.</li>
+<li>Follow the official <a href="https://www.raspberrypi.org/help/noobs-setup/">installation instructions</a>.</li>
+<li>Follow the <a href="http://wiringpi.com/download-and-install/">Wiring Pi Instructions</a> to get <em>git</em>, update and upgrade your Rasbpian packages, then install WwiringPi.</li>
+</ol>
+
+
+<p>Be patient – each of these steps takes a while.</p>
+
+<p>Once you’ve got wiringPi installed, run the <code>gpio</code> commands shown below.</p>
+
+<pre><div data-code-id="code-0" class="copy-code"><button class="btn btn-default btn-sm">Copy Code</button></div><code>&gt;gpio -v
+&gt;gpio readall
+</code></pre><div id="code-0" class="hide">&gt;gpio -v
+&gt;gpio readall
+</div>
+
+<p>It should respond with some information about the wiringPi version and the Pi that its running on, then draw a table illustrating the configuration for the pins in the 40-pin connector.</p>
+
+<p>The I2C and SPI interfaces each require some additional configuration and initialization, which we’ll cover in later sections.</p>      </div>
+          <div class="section tutorial-page">
+        <h2 id="connecting-to-the-ports">Connecting To The Ports</h2>
+        <p>Before we get into the configuration and software examples, lets locate the pins used by each of these interfaces.</p>
+
+<p>If you’re directly connecting to the pins on the Pi, they’re a little disorganized.  I2C.1 is near one end, while SPI and I2C.0  are in the middle of the header.  If you’re connecting to these pins, be sure to count carefully.</p>
+
+<p style="text-align:center;"> <a href="./Raspberry Pi SPI and I2C Tutorial - learn.sparkfun.com_files/pin-labels-on-pi.png"><img src="./Raspberry Pi SPI and I2C Tutorial - learn.sparkfun.com_files/pin-labels-on-pi.png" alt="alt text"></a></p>
+
+<p style="text-align:center;"> <em>Pi Serial Bus Pins</em></p>
+
+<p>The <a href="https://www.sparkfun.com/products/13717">Pi Wedge</a> adapter PCB rearranges the pins, and labels them clearly.  We’ll be using the Wedge for the following examples.</p>
+
+<p style="text-align:center;"> <a href="https://cdn.sparkfun.com/assets/learn_tutorials/4/4/9/pin-labels-on-wedge.png"><img src="./Raspberry Pi SPI and I2C Tutorial - learn.sparkfun.com_files/pin-labels-on-wedge.png" alt="alt text"></a></p>
+
+<p style="text-align:center;"> <em>Wedge Serial Bus Pins</em></p>      </div>
+          <div class="section tutorial-page">
+        <h2 id="spi-on-pi">SPI on Pi</h2>
+        <h3>Configuration</h3>
+
+<p>The SPI peripheral is not turned on by default.  To enable it, do the following.</p>
+
+<ol>
+<li>Run <code>sudo raspi-config</code>.</li>
+<li>Use the down arrow to select <code>9 Advanced Options</code></li>
+<li>Arrow down to <code>A6 SPI</code>.</li>
+<li>Select <code>yes</code> when it asks you to enable SPI,</li>
+<li>Also select <code>yes</code> when it asks about automatically loading the kernel module.</li>
+<li>Use the right arrow to select the <code>&lt;Finish&gt;</code> button.</li>
+<li>Select <code>yes</code> when it asks to reboot.</li>
+</ol>
+
+
+<p style="text-align:center;"> <a href="./Raspberry Pi SPI and I2C Tutorial - learn.sparkfun.com_files/spi-menu.png"><img src="./Raspberry Pi SPI and I2C Tutorial - learn.sparkfun.com_files/spi-menu.png" alt="alt text"></a></p>
+
+<p style="text-align:center;"> <em>Raspi-config for SPI</em></p>
+
+<p>The system will reboot.  When it comes back up, log in and enter the following command</p>
+
+<pre><div data-code-id="code-1" class="copy-code"><button class="btn btn-default btn-sm">Copy Code</button></div><code>&gt;ls /dev/*spi*
+</code></pre><div id="code-1" class="hide">&gt;ls /dev/*spi*
+</div>
+
+<p>The Pi should respond with</p>
+
+<pre><div data-code-id="code-2" class="copy-code"><button class="btn btn-default btn-sm">Copy Code</button></div><code>/dev/spidev0.0  /dev/spidev0.1
+</code></pre><div id="code-2" class="hide">/dev/spidev0.0  /dev/spidev0.1
+</div>
+
+<p>These represent SPI devices on chip enable pins 0 and 1, respectively.  These pins are hardwired within the Pi.  Ordinarily, this means the interface supports at most two peripherals, but there are cases where multiple devices can be daisy-chained, sharing a single chip enable signal.</p>
+
+<h3>Programming Example</h3>
+
+<h4>Required Materials</h4>
+
+<ul>
+<li>The <a href="https://www.sparkfun.com/products/13717">40-pin Pi Wedge</a>.</li>
+<li>A <a href="https://www.sparkfun.com/products/12994">Raspberry Pi B+</a> or <a href="https://www.sparkfun.com/products/13297">Pi 2 Model B</a> single board computer.</li>
+<li>A <a href="https://www.sparkfun.com/products/12002">Solderless</a> <a href="https://www.sparkfun.com/products/12615">Breadboard</a>.</li>
+<li>Some <a href="https://www.sparkfun.com/products/8431">jumper wires</a>.</li>
+<li>A <a href="https://www.sparkfun.com/products/11441">Serial 7-Segment</a> display.</li>
+</ul>
+
+
+<p>The Serial 7-Segment display is particularly useful for testing serial interfaces, because it can accept command from a UART, SPI, or I2C.</p>
+
+<h4>Connections</h4>
+
+<p>The display was connected to the Pi, via the Pi Wedge,  as follows.</p>
+
+<table border="1" align="center" width="500">
+<tbody><tr align="center"><td><b>Rabpberry Pi Signal</b></td> <td><b>Serial 7-seg Signal</b></td></tr>
+<tr align="center"><td>GND</td> <td>GND</td></tr>
+<tr align="center"><td>3.3V</td> <td>VCC</td></tr>
+<tr align="center"><td>CE1</td> <td>SS (Shift Select)</td></tr>
+<tr align="center"><td>SCK</td> <td>SCK</td></tr>
+<tr align="center"><td>MOSI</td> <td>SDI</td></tr>
+<tr align="center"><td>MISO</td> <td>SDO</td></tr>
+</tbody></table>
+
+
+<p>The test hardware looked like this.</p>
+
+<p style="text-align:center;"> <a href="https://cdn.sparkfun.com/assets/learn_tutorials/4/4/9/spi-sample.jpg"><img src="./Raspberry Pi SPI and I2C Tutorial - learn.sparkfun.com_files/spi-sample.jpg" alt="alt text"></a></p>
+
+<p style="text-align:center;"> <em>Serial 7-Segment connections for SPI</em></p>
+
+<h4>Sample Program</h4>
+
+<pre data-language="language:c
+,c
+"><div data-code-id="code-3" class="copy-code"><button class="btn btn-default btn-sm">Copy Code</button></div><code class="rainbow"><span class="comment">/******************************************************************************
+i2ctest.cpp
+Raspberry Pi I2C interface demo
+Byron Jacquot @ SparkFun Electronics&gt;
+4/2/2014
+https://github.com/sparkfun/Pi_Wedge
+
+A brief demonstration of the Raspberry Pi I2C interface, using the SparkFun
+Pi Wedge breakout board.
+
+Resources:
+
+This example makes use of the Wiring Pi library, which streamlines the interface
+to the the I/O pins on the Raspberry Pi, providing an API that is similar to the
+Arduino.  You can learn about installing Wiring Pi here:
+http://wiringpi.com/download-and-install/
+
+The wiringPi SPI API is documented here:
+https://projects.drogon.net/raspberry-pi/wiringpi/spi-library/
+
+The init call returns a standard file descriptor.  More detailed configuration
+of the interface can be performed using ioctl calls on that descriptor.
+See the wiringPi SPI implementation (wiringPi/wiringPiSPI.c) for some examples.
+Parameters configurable with ioctl are documented here:
+http://git.kernel.org/cgit/linux/kernel/git/torvalds/linux.git/tree/Documentation/spi/spidev
+
+Hardware connections:
+
+This file interfaces with the SparkFun Serial 7 Segment display:
+https://www.sparkfun.com/products/11629
+
+The board was connected as follows:
+(Raspberry Pi)(Serial 7 Segment)
+GND  -&gt; GND
+3.3V -&gt; Vcc
+CE1  -&gt; SS (Shift Select)
+SCK  -&gt; SCK 
+MOSI -&gt; SDI
+MISO -&gt; SDO
+
+To build this file, I use the command:
+&gt;  g++ spitest.cpp -lwiringPi
+
+Then to run it, first the spi kernel module needs to be loaded.  This can be 
+done using the GPIO utility.
+&gt; gpio load spi
+&gt; ./a.out
+
+This test uses the single-segment mode of the 7 segment display.  It shifts a 
+bit through the display characters, lighting a single character of each at a 
+time.
+
+Development environment specifics:
+Tested on Raspberry Pi V2 hardware, running Raspbian.
+Building with GCC 4.6.3 (Debian 4.6.3-14+rpi1)
+
+This code is beerware; if you see me (or any other SparkFun employee) at the
+local, and you've found our code helpful, please buy us a round!
+
+Distributed as-is; no warranty is given.
+******************************************************************************/</span>
+
+<span class="comment">#include &lt;iostream&gt;</span>
+<span class="comment">#include &lt;errno.h&gt;</span>
+<span class="comment">#include &lt;wiringPiSPI.h&gt;</span>
+<span class="comment">#include &lt;unistd.h&gt;</span>
+
+using namespace std;
+
+<span class="comment">// channel is the wiringPi name for the chip select (or chip enable) pin.</span>
+<span class="comment">// Set this to 0 or 1, depending on how it's connected.</span>
+<span class="keyword">static</span> <span class="keyword">const</span> <span class="keyword">int</span> CHANNEL <span class="keyword operator">=</span> <span class="constant numeric">1</span>;
+
+<span class="keyword">int</span> <span class="function call">main</span>()
+{
+   <span class="keyword">int</span> fd, result;
+   <span class="keyword">unsigned</span> <span class="keyword">char</span> buffer[<span class="constant numeric">100</span>];
+
+   cout <span class="keyword operator">&lt;</span><span class="keyword operator">&lt;</span> <span class="string">"Initializing"</span> <span class="keyword operator">&lt;</span><span class="keyword operator">&lt;</span> endl ;
+
+   <span class="comment">// Configure the interface.</span>
+   <span class="comment">// CHANNEL insicates chip select,</span>
+   <span class="comment">// 500000 indicates bus speed.</span>
+   fd <span class="keyword operator">=</span> <span class="function call">wiringPiSPISetup</span>(CHANNEL, <span class="constant numeric">500000</span>);
+
+   cout <span class="keyword operator">&lt;</span><span class="keyword operator">&lt;</span> <span class="string">"Init result: "</span> <span class="keyword operator">&lt;</span><span class="keyword operator">&lt;</span> fd <span class="keyword operator">&lt;</span><span class="keyword operator">&lt;</span> endl;
+
+   <span class="comment">// clear display</span>
+   buffer[<span class="constant numeric">0</span>] <span class="keyword operator">=</span> <span class="constant numeric">0x76</span>;
+   <span class="function call">wiringPiSPIDataRW</span>(CHANNEL, buffer, <span class="constant numeric">1</span>);
+
+   <span class="function call">sleep</span>(<span class="constant numeric">5</span>);
+
+   <span class="comment">// Do a one-hot bit selection for each field of the display</span>
+   <span class="comment">// It displays gibberish, but tells us that we're correctly addressing all </span>
+   <span class="comment">// of the segments.</span>
+   <span class="keyword">for</span>(<span class="keyword">int</span> i <span class="keyword operator">=</span> <span class="constant numeric">1</span>; i <span class="keyword operator">&lt;</span><span class="keyword operator">=</span> <span class="constant numeric">0x7f</span>; i <span class="keyword operator">&lt;</span><span class="keyword operator">&lt;</span><span class="keyword operator">=</span> <span class="constant numeric">1</span>)
+   {
+      <span class="comment">// the decimals, colon and apostrophe dots</span>
+      buffer[<span class="constant numeric">0</span>] <span class="keyword operator">=</span> <span class="constant numeric">0x77</span>;
+      buffer[<span class="constant numeric">1</span>] <span class="keyword operator">=</span> i;
+      result <span class="keyword operator">=</span> <span class="function call">wiringPiSPIDataRW</span>(CHANNEL, buffer, <span class="constant numeric">2</span>);
+
+      <span class="comment">// The first character</span>
+      buffer[<span class="constant numeric">0</span>] <span class="keyword operator">=</span> <span class="constant numeric">0x7b</span>;
+      buffer[<span class="constant numeric">1</span>] <span class="keyword operator">=</span> i;
+      result <span class="keyword operator">=</span> <span class="function call">wiringPiSPIDataRW</span>(CHANNEL, buffer, <span class="constant numeric">2</span>);
+
+      <span class="comment">// The second character</span>
+      buffer[<span class="constant numeric">0</span>] <span class="keyword operator">=</span> <span class="constant numeric">0x7c</span>;
+      buffer[<span class="constant numeric">1</span>] <span class="keyword operator">=</span> i;
+      result <span class="keyword operator">=</span> <span class="function call">wiringPiSPIDataRW</span>(CHANNEL, buffer, <span class="constant numeric">2</span>);
+
+      <span class="comment">// The third character</span>
+      buffer[<span class="constant numeric">0</span>] <span class="keyword operator">=</span> <span class="constant numeric">0x7d</span>;
+      buffer[<span class="constant numeric">1</span>] <span class="keyword operator">=</span> i;
+      result <span class="keyword operator">=</span> <span class="function call">wiringPiSPIDataRW</span>(CHANNEL, buffer, <span class="constant numeric">2</span>);
+
+      <span class="comment">// The last character</span>
+      buffer[<span class="constant numeric">0</span>] <span class="keyword operator">=</span> <span class="constant numeric">0x7e</span>;
+      buffer[<span class="constant numeric">1</span>] <span class="keyword operator">=</span> i;
+      result <span class="keyword operator">=</span> <span class="function call">wiringPiSPIDataRW</span>(CHANNEL, buffer, <span class="constant numeric">2</span>);
+
+      <span class="comment">// Pause so we can see them</span>
+      <span class="function call">sleep</span>(<span class="constant numeric">5</span>);
+   }
+
+   <span class="comment">// clear display again</span>
+   buffer[<span class="constant numeric">0</span>] <span class="keyword operator">=</span> <span class="constant numeric">0x76</span>;
+   <span class="function call">wiringPiSPIDataRW</span>(CHANNEL, buffer, <span class="constant numeric">1</span>);
+
+}
+</code></pre><div id="code-3" class="hide">/******************************************************************************
+i2ctest.cpp
+Raspberry Pi I2C interface demo
+Byron Jacquot @ SparkFun Electronics&gt;
+4/2/2014
+https://github.com/sparkfun/Pi_Wedge
+
+A brief demonstration of the Raspberry Pi I2C interface, using the SparkFun
+Pi Wedge breakout board.
+
+Resources:
+
+This example makes use of the Wiring Pi library, which streamlines the interface
+to the the I/O pins on the Raspberry Pi, providing an API that is similar to the
+Arduino.  You can learn about installing Wiring Pi here:
+http://wiringpi.com/download-and-install/
+
+The wiringPi SPI API is documented here:
+https://projects.drogon.net/raspberry-pi/wiringpi/spi-library/
+
+The init call returns a standard file descriptor.  More detailed configuration
+of the interface can be performed using ioctl calls on that descriptor.
+See the wiringPi SPI implementation (wiringPi/wiringPiSPI.c) for some examples.
+Parameters configurable with ioctl are documented here:
+http://git.kernel.org/cgit/linux/kernel/git/torvalds/linux.git/tree/Documentation/spi/spidev
+
+Hardware connections:
+
+This file interfaces with the SparkFun Serial 7 Segment display:
+https://www.sparkfun.com/products/11629
+
+The board was connected as follows:
+(Raspberry Pi)(Serial 7 Segment)
+GND  -&gt; GND
+3.3V -&gt; Vcc
+CE1  -&gt; SS (Shift Select)
+SCK  -&gt; SCK 
+MOSI -&gt; SDI
+MISO -&gt; SDO
+
+To build this file, I use the command:
+&gt;  g++ spitest.cpp -lwiringPi
+
+Then to run it, first the spi kernel module needs to be loaded.  This can be 
+done using the GPIO utility.
+&gt; gpio load spi
+&gt; ./a.out
+
+This test uses the single-segment mode of the 7 segment display.  It shifts a 
+bit through the display characters, lighting a single character of each at a 
+time.
+
+Development environment specifics:
+Tested on Raspberry Pi V2 hardware, running Raspbian.
+Building with GCC 4.6.3 (Debian 4.6.3-14+rpi1)
+
+This code is beerware; if you see me (or any other SparkFun employee) at the
+local, and you've found our code helpful, please buy us a round!
+
+Distributed as-is; no warranty is given.
+******************************************************************************/
+
+#include &lt;iostream&gt;
+#include &lt;errno.h&gt;
+#include &lt;wiringPiSPI.h&gt;
+#include &lt;unistd.h&gt;
+
+using namespace std;
+
+// channel is the wiringPi name for the chip select (or chip enable) pin.
+// Set this to 0 or 1, depending on how it's connected.
+static const int CHANNEL = 1;
+
+int main()
+{
+   int fd, result;
+   unsigned char buffer[100];
+
+   cout &lt;&lt; "Initializing" &lt;&lt; endl ;
+
+   // Configure the interface.
+   // CHANNEL insicates chip select,
+   // 500000 indicates bus speed.
+   fd = wiringPiSPISetup(CHANNEL, 500000);
+
+   cout &lt;&lt; "Init result: " &lt;&lt; fd &lt;&lt; endl;
+
+   // clear display
+   buffer[0] = 0x76;
+   wiringPiSPIDataRW(CHANNEL, buffer, 1);
+
+   sleep(5);
+
+   // Do a one-hot bit selection for each field of the display
+   // It displays gibberish, but tells us that we're correctly addressing all 
+   // of the segments.
+   for(int i = 1; i &lt;= 0x7f; i &lt;&lt;= 1)
+   {
+      // the decimals, colon and apostrophe dots
+      buffer[0] = 0x77;
+      buffer[1] = i;
+      result = wiringPiSPIDataRW(CHANNEL, buffer, 2);
+
+      // The first character
+      buffer[0] = 0x7b;
+      buffer[1] = i;
+      result = wiringPiSPIDataRW(CHANNEL, buffer, 2);
+
+      // The second character
+      buffer[0] = 0x7c;
+      buffer[1] = i;
+      result = wiringPiSPIDataRW(CHANNEL, buffer, 2);
+
+      // The third character
+      buffer[0] = 0x7d;
+      buffer[1] = i;
+      result = wiringPiSPIDataRW(CHANNEL, buffer, 2);
+
+      // The last character
+      buffer[0] = 0x7e;
+      buffer[1] = i;
+      result = wiringPiSPIDataRW(CHANNEL, buffer, 2);
+
+      // Pause so we can see them
+      sleep(5);
+   }
+
+   // clear display again
+   buffer[0] = 0x76;
+   wiringPiSPIDataRW(CHANNEL, buffer, 1);
+
+}
+</div>
+
+<p>When you built wiringPi, you might have noticed the statement about how to compile applications against it.</p>
+
+<pre><div data-code-id="code-4" class="copy-code"><button class="btn btn-default btn-sm">Copy Code</button></div><code>NOTE: To compile programs with wiringPi, you need to add:
+    -lwiringPi
+to your compile line(s) To use the Gertboard, MaxDetect, etc.
+code (the devLib), you need to also add:
+    -lwiringPiDev
+to your compile line(s).
+</code></pre><div id="code-4" class="hide">NOTE: To compile programs with wiringPi, you need to add:
+    -lwiringPi
+to your compile line(s) To use the Gertboard, MaxDetect, etc.
+code (the devLib), you need to also add:
+    -lwiringPiDev
+to your compile line(s).
+</div>
+
+<p>Thus, we compile using the command.</p>
+
+<pre><div data-code-id="code-5" class="copy-code"><button class="btn btn-default btn-sm">Copy Code</button></div><code>&gt;g++ spitest.cpp -lwiringPi -o spitest
+</code></pre><div id="code-5" class="hide">&gt;g++ spitest.cpp -lwiringPi -o spitest
+</div>
+
+<p>Which generates an executable <code>spitest</code>.  When we run <code>./spitest</code>, it will exercise each of the segments of the display.  It illuminates a segment in each digit for 5 seconds, before moving to the next segment.  It takes about 40 seconds overall.</p>      </div>
+          <div class="section tutorial-page">
+        <h2 id="i2c-on-pi">I2C on Pi</h2>
+        <h3>Configuration</h3>
+
+<p>Like the SPI peripheral, I2C is not turned on by default.  Again, we can use <code>raspi-config</code> to enable it.</p>
+
+<ol>
+<li>Run <code>sudo raspi-config</code>.</li>
+<li>Use the down arrow to select <code>9 Advanced Options</code></li>
+<li>Arrow down to <code>A7 I2C</code>.</li>
+<li>Select <code>yes</code> when it asks you to enable I2C</li>
+<li>Also select <code>yes</code> when it tasks about automatically loading the kernel module.</li>
+<li>Use the right arrow to select the <code>&lt;Finish&gt;</code> button.</li>
+<li>Select <code>yes</code> when it asks to reboot.</li>
+</ol>
+
+
+<p style="text-align:center;"> <a href="./Raspberry Pi SPI and I2C Tutorial - learn.sparkfun.com_files/i2c-menu.png"><img src="./Raspberry Pi SPI and I2C Tutorial - learn.sparkfun.com_files/i2c-menu.png" alt="alt text"></a></p>
+
+<p style="text-align:center;"> <em>Raspi-config for I2C</em></p>
+
+<p>The system will reboot.  when it comes back up, log in and enter the following command</p>
+
+<pre><div data-code-id="code-6" class="copy-code"><button class="btn btn-default btn-sm">Copy Code</button></div><code>&gt;ls /dev/*i2c*
+</code></pre><div id="code-6" class="hide">&gt;ls /dev/*i2c*
+</div>
+
+<p>The Pi should respond with</p>
+
+<p>   /dev/i2c-1</p>
+
+<p>Which represents the user-mode I2C interface.</p>
+
+<h3>Utilities</h3>
+
+<p>There is a set of command-line utility programs that can help get an I2C interface working.  You can get them with the apt package manager.</p>
+
+<pre><div data-code-id="code-7" class="copy-code"><button class="btn btn-default btn-sm">Copy Code</button></div><code>sudo apt-get install -y i2c-tools
+</code></pre><div id="code-7" class="hide">sudo apt-get install -y i2c-tools
+</div>
+
+<p>In particular, the <code>i2cdetect</code> program will probe all the addresses on a bus, and report whether any devices are present.</p>
+
+<pre><div data-code-id="code-8" class="copy-code"><button class="btn btn-default btn-sm">Copy Code</button></div><code>pi@raspberrypi:~/$ i2cdetect -y 1
+     0  1  2  3  4  5  6  7  8  9  a  b  c  d  e  f
+00:          -- -- -- -- -- -- -- -- -- -- -- -- --
+10: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+20: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+30: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+40: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+50: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+60: 60 -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+70: -- -- -- -- -- -- -- --
+</code></pre><div id="code-8" class="hide">pi@raspberrypi:~/$ i2cdetect -y 1
+     0  1  2  3  4  5  6  7  8  9  a  b  c  d  e  f
+00:          -- -- -- -- -- -- -- -- -- -- -- -- --
+10: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+20: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+30: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+40: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+50: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+60: 60 -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+70: -- -- -- -- -- -- -- --
+</div>
+
+<p>This map indicates that there is a preipheral at address 0x60.  We can try to read and write its registers using the <code>i2cget</code>, <code>i2cset</code> and <code>i2cdump</code> commands.</p>
+
+<h3>Programming Example</h3>
+
+<h4>Required Materials</h4>
+
+<ul>
+<li>The <a href="https://www.sparkfun.com/products/13717">40-pin Pi Wedge</a>.</li>
+<li>A <a href="https://www.sparkfun.com/products/12994">Raspberry Pi B+</a> or <a href="https://www.sparkfun.com/products/13297">Pi 2 Model B</a> single board computer.</li>
+<li>A <a href="https://www.sparkfun.com/products/12002">Solderless</a> <a href="https://www.sparkfun.com/products/12615">Breadboard</a>.</li>
+<li>Some <a href="https://www.sparkfun.com/products/8431">jumper wires</a>.</li>
+<li>An <a href="https://www.sparkfun.com/products/12918">MCP4725</a> digital-to-analog converter.</li>
+</ul>
+
+
+<h4>Connections</h4>
+
+<p>The display was connected to the Pi, via the Pi Wedge,  as follows.</p>
+
+<table border="1" align="center" width="500">
+<tbody><tr align="center"><td><b>Rabpberry Pi Signal</b></td> <td><b>MCP4725</b></td></tr>
+<tr align="center"><td>GND</td> <td>GND</td></tr>
+<tr align="center"><td>3.3V</td> <td>VCC</td></tr>
+<tr align="center"><td>SCL</td> <td>SCL</td></tr>
+<tr align="center"><td>SDA</td> <td>SDA</td></tr>
+</tbody></table>
+
+
+<p>The test hardware looked like this.</p>
+
+<p style="text-align:center;"> <a href="https://cdn.sparkfun.com/assets/learn_tutorials/4/4/9/i2c-sample.jpg"><img src="./Raspberry Pi SPI and I2C Tutorial - learn.sparkfun.com_files/i2c-sample.jpg" alt="alt text"></a></p>
+
+<p style="text-align:center;"> <em>ADC on a Breadboard</em></p>
+
+<h4>Example Program</h4>
+
+<p>The following code writes successive values to the DAC, producing an sawtooth wave at its output pin.</p>
+
+<pre data-language="language:c
+,c
+"><div data-code-id="code-9" class="copy-code"><button class="btn btn-default btn-sm">Copy Code</button></div><code class="rainbow"><span class="comment">/******************************************************************************
+i2ctest.cpp
+Raspberry Pi I2C interface demo
+Byron Jacquot @ SparkFun Electronics&gt;
+4/2/2014
+https://github.com/sparkfun/Pi_Wedge
+
+A brief demonstration of the Raspberry Pi I2C interface, using the SparkFun
+Pi Wedge breakout board.
+
+Resources:
+
+This example makes use of the Wiring Pi library, which streamlines the interface
+the the I/O pins on the Raspberry Pi, providing an API that is similar to the
+Arduino.  You can learn about installing Wiring Pi here:
+http://wiringpi.com/download-and-install/
+
+The I2C API is documented here:
+https://projects.drogon.net/raspberry-pi/wiringpi/i2c-library/
+
+The init call returns a standard file descriptor.  More detailed configuration
+of the interface can be performed using ioctl calls on that descriptor.
+See the wiringPi I2C implementation (wiringPi/wiringPiI2C.c) for some examples.
+Parameters configurable with ioctl are documented here:
+http://git.kernel.org/cgit/linux/kernel/git/torvalds/linux.git/tree/Documentation/i2c/dev-interface
+
+Hardware connections:
+
+This file interfaces with the SparkFun MCP4725 breakout board:
+https://www.sparkfun.com/products/8736
+
+The board was connected as follows:
+(Raspberry Pi)(MCP4725)
+GND  -&gt; GND
+3.3V -&gt; Vcc
+SCL  -&gt; SCL
+SDA  -&gt; SDA
+
+An oscilloscope probe was connected to the analog output pin of the MCP4725.
+
+To build this file, I use the command:
+&gt;  g++ i2ctest.cpp -lwiringPi
+
+Then to run it, first the I2C kernel module needs to be loaded.  This can be 
+done using the GPIO utility.
+&gt; gpio load i2c 400
+&gt; ./a.out
+
+This will run the MCP through its output range several times.  A rising 
+sawtooth will be seen on the analog output.
+
+Development environment specifics:
+Tested on Raspberry Pi V2 hardware, running Raspbian.
+Building with GCC 4.6.3 (Debian 4.6.3-14+rpi1)
+
+This code is beerware; if you see me (or any other SparkFun employee) at the
+local, and you've found our code helpful, please buy us a round!
+
+Distributed as-is; no warranty is given.
+******************************************************************************/</span>
+
+<span class="comment">#include &lt;iostream&gt;</span>
+<span class="comment">#include &lt;errno.h&gt;</span>
+<span class="comment">#include &lt;wiringPiI2C.h&gt;</span>
+
+using namespace std;
+
+<span class="keyword">int</span> <span class="function call">main</span>()
+{
+   <span class="keyword">int</span> fd, result;
+
+   <span class="comment">// Initialize the interface by giving it an external device ID.</span>
+   <span class="comment">// The MCP4725 defaults to address 0x60.   </span>
+   <span class="comment">//</span>
+   <span class="comment">// It returns a standard file descriptor.</span>
+   <span class="comment">// </span>
+   fd <span class="keyword operator">=</span> <span class="function call">wiringPiI2CSetup</span>(<span class="constant numeric">0x60</span>);
+
+   cout <span class="keyword operator">&lt;</span><span class="keyword operator">&lt;</span> <span class="string">"Init result: "</span><span class="keyword operator">&lt;</span><span class="keyword operator">&lt;</span> fd <span class="keyword operator">&lt;</span><span class="keyword operator">&lt;</span> endl;
+
+   <span class="keyword">for</span>(<span class="keyword">int</span> i <span class="keyword operator">=</span> <span class="constant numeric">0</span>; i <span class="keyword operator">&lt;</span> <span class="constant numeric">0x0000ffff</span>; i<span class="keyword operator">+</span><span class="keyword operator">+</span>)
+   {
+      <span class="comment">// I tried using the "fast write" command, but couldn't get it to work.  </span>
+      <span class="comment">// It's not entirely obvious what's happening behind the scenes as</span>
+      <span class="comment">// regards to endianness or length of data sent.  I think it's only </span>
+      <span class="comment">// sending one byte, when we really need two.</span>
+      <span class="comment">//</span>
+      <span class="comment">// So instead I'm doing a 16 bit register access.  It appears to </span>
+      <span class="comment">// properly handle the endianness, and the length is specified by the </span>
+      <span class="comment">// call.  The only question was the register address, which is the </span>
+      <span class="comment">// concatenation of the command (010x = write DAC output) </span>
+      <span class="comment">// and power down (x00x = power up) bits.</span>
+      result <span class="keyword operator">=</span> <span class="function call">wiringPiI2CWriteReg16</span>(fd, <span class="constant numeric">0x40</span>, (i <span class="keyword operator">&amp;</span> <span class="constant numeric">0xfff</span>) );
+
+      <span class="keyword">if</span>(result <span class="keyword operator">=</span><span class="keyword operator">=</span> <span class="keyword operator">-</span><span class="constant numeric">1</span>)
+      {
+         cout <span class="keyword operator">&lt;</span><span class="keyword operator">&lt;</span> <span class="string">"Error.  Errno is: "</span> <span class="keyword operator">&lt;</span><span class="keyword operator">&lt;</span> errno <span class="keyword operator">&lt;</span><span class="keyword operator">&lt;</span> endl;
+      }
+   }
+}
+</code></pre><div id="code-9" class="hide">/******************************************************************************
+i2ctest.cpp
+Raspberry Pi I2C interface demo
+Byron Jacquot @ SparkFun Electronics&gt;
+4/2/2014
+https://github.com/sparkfun/Pi_Wedge
+
+A brief demonstration of the Raspberry Pi I2C interface, using the SparkFun
+Pi Wedge breakout board.
+
+Resources:
+
+This example makes use of the Wiring Pi library, which streamlines the interface
+the the I/O pins on the Raspberry Pi, providing an API that is similar to the
+Arduino.  You can learn about installing Wiring Pi here:
+http://wiringpi.com/download-and-install/
+
+The I2C API is documented here:
+https://projects.drogon.net/raspberry-pi/wiringpi/i2c-library/
+
+The init call returns a standard file descriptor.  More detailed configuration
+of the interface can be performed using ioctl calls on that descriptor.
+See the wiringPi I2C implementation (wiringPi/wiringPiI2C.c) for some examples.
+Parameters configurable with ioctl are documented here:
+http://git.kernel.org/cgit/linux/kernel/git/torvalds/linux.git/tree/Documentation/i2c/dev-interface
+
+Hardware connections:
+
+This file interfaces with the SparkFun MCP4725 breakout board:
+https://www.sparkfun.com/products/8736
+
+The board was connected as follows:
+(Raspberry Pi)(MCP4725)
+GND  -&gt; GND
+3.3V -&gt; Vcc
+SCL  -&gt; SCL
+SDA  -&gt; SDA
+
+An oscilloscope probe was connected to the analog output pin of the MCP4725.
+
+To build this file, I use the command:
+&gt;  g++ i2ctest.cpp -lwiringPi
+
+Then to run it, first the I2C kernel module needs to be loaded.  This can be 
+done using the GPIO utility.
+&gt; gpio load i2c 400
+&gt; ./a.out
+
+This will run the MCP through its output range several times.  A rising 
+sawtooth will be seen on the analog output.
+
+Development environment specifics:
+Tested on Raspberry Pi V2 hardware, running Raspbian.
+Building with GCC 4.6.3 (Debian 4.6.3-14+rpi1)
+
+This code is beerware; if you see me (or any other SparkFun employee) at the
+local, and you've found our code helpful, please buy us a round!
+
+Distributed as-is; no warranty is given.
+******************************************************************************/
+
+#include &lt;iostream&gt;
+#include &lt;errno.h&gt;
+#include &lt;wiringPiI2C.h&gt;
+
+using namespace std;
+
+int main()
+{
+   int fd, result;
+
+   // Initialize the interface by giving it an external device ID.
+   // The MCP4725 defaults to address 0x60.   
+   //
+   // It returns a standard file descriptor.
+   // 
+   fd = wiringPiI2CSetup(0x60);
+
+   cout &lt;&lt; "Init result: "&lt;&lt; fd &lt;&lt; endl;
+
+   for(int i = 0; i &lt; 0x0000ffff; i++)
+   {
+      // I tried using the "fast write" command, but couldn't get it to work.  
+      // It's not entirely obvious what's happening behind the scenes as
+      // regards to endianness or length of data sent.  I think it's only 
+      // sending one byte, when we really need two.
+      //
+      // So instead I'm doing a 16 bit register access.  It appears to 
+      // properly handle the endianness, and the length is specified by the 
+      // call.  The only question was the register address, which is the 
+      // concatenation of the command (010x = write DAC output) 
+      // and power down (x00x = power up) bits.
+      result = wiringPiI2CWriteReg16(fd, 0x40, (i &amp; 0xfff) );
+
+      if(result == -1)
+      {
+         cout &lt;&lt; "Error.  Errno is: " &lt;&lt; errno &lt;&lt; endl;
+      }
+   }
+}
+</div>
+
+<p>Build it and link it to wiringPi using the following command.</p>
+
+<pre><div data-code-id="code-10" class="copy-code"><button class="btn btn-default btn-sm">Copy Code</button></div><code> g++ i2ctest.cpp -lwiringPi -o i2ctest
+</code></pre><div id="code-10" class="hide"> g++ i2ctest.cpp -lwiringPi -o i2ctest
+</div>
+
+<p>When you run <code>i2ctest</code>, the DAC will produce an analog sawtooth wave for a few seconds.</p>
+
+<p style="text-align:center;"> <a href="./Raspberry Pi SPI and I2C Tutorial - learn.sparkfun.com_files/TEK0007.JPG"><img src="./Raspberry Pi SPI and I2C Tutorial - learn.sparkfun.com_files/TEK0007.JPG" alt="alt text"></a></p>
+
+<p style="text-align:center;"> <em>Waveform as measured at the <code>OUT</code> pin</em></p>      </div>
+          <div class="section tutorial-page">
+        <h2 id="i2c-0-on-40-pin-pi-boards">I2C-0 on 40-pin Pi Boards</h2>
+        <h3>An Extra I2C bus?</h3>
+
+<p>As part of the B+ improvemets, the Raspberry Pi Foundation has standardized the interface to add-on boards, in what they call the <a href="http://www.raspberrypi.org/introducing-raspberry-pi-hats/">“Hardware Added On Top” (HAT)</a> specification.  It standardizes the physical form factor for add-on boards, and includes a provision for the B+ to automatically identify and initialize HATs at startup.  It uses an I2C bus to read a description from an EEPROM on the HAT, similar to <a href="https://learn.sparkfun.com/tutorials/beaglebone-black-proto-cape-hookup-guide#using-the-eeprom">cape identification</a> on the Beagle Bone Black.</p>
+
+<p>This capability has been carried forward on the A+ and Pi 2 Model B as well.  This I2C bus is found on the ID_SC and ID_SD pins (pins 27 and 28 of the 40-pin connector) - but before you get too excited about adding peripherals on that bus, observe the note in the schematic for that port.</p>
+
+<p style="text-align:center;"> <a href="https://cdn.sparkfun.com/assets/learn_tutorials/3/2/5/bplus-gpio.png"><img src="./Raspberry Pi SPI and I2C Tutorial - learn.sparkfun.com_files/bplus-gpio.png" alt="B+ GPIO Pinout"></a></p>
+
+<p style="text-align:center;"> <em>Schematic snippet for 40-Pin GPIO connector (J8).</em></p>
+
+<p>This is further clarified in the <a href="https://github.com/raspberrypi/hats/blob/master/designguide.md">HAT design guide</a></p>
+
+<blockquote><p>On a Model B+, GPIO0 (ID_SD) and GPIO1 (ID_SC) will be switched to ALT0 (I2C-0) mode and probed for an EEPROM. These pins will revert to inputs once the probe sequence has completed.</p>
+
+<p>The only allowed connections to the ID_ pins are an ID EEPROM plus 3.9K pull up resistors. Do not connect anything else to these pins!</p></blockquote>
+
+<p>It’s only there to talk to EEPROMs at addresses 0x50 during boot time.  User access at runtime is problematic.  If you want a general purpose I2C bus on the B+, you’ll need to use I2C-1, on pins 3 and 5 of the 40-pin connector, marked SDA and SCL on the Pi Wedge.</p>
+
+<h3>Enabling I2C-0</h3>
+
+<p>I2C-0 is disabled by default.  To enable it, you’ll need to manually edit the configuration file.</p>
+
+<p>Edit /boot/config.txt, and add the following line.  If you previously used <code>raspi-config</code> to enable I2C-1 and SPI, you’ll see similar entries near the bottom of the vile.</p>
+
+<pre><div data-code-id="code-11" class="copy-code"><button class="btn btn-default btn-sm">Copy Code</button></div><code>dtparam=i2c_vc=on
+</code></pre><div id="code-11" class="hide">dtparam=i2c_vc=on
+</div>
+
+<p>With that enabled, restart your Pi (<code>sudo reboot</code>).  When it’s back up, you’ll know it’s been activated is you’ve got a filesystem node at <code>/dev/i2c-0</code>.</p>
+
+<h3>EEPROM Diagnostic Tools</h3>
+
+<p>Alongside the HAT design guide, there is a directory with some <a href="https://github.com/raspberrypi/hats/tree/master/eepromutils">software tools</a> for working with HAT EEPROMs.  To use them, download them then <code>make</code> them from the command line.</p>
+
+<p>We’ll explore how they’re used below.</p>
+
+<h3>Testing I2C-0</h3>
+
+<p>With the information above, we grabbed a <a href="https://www.sparkfun.com/products/525">24LC256</a> EEPROM chip, and wired it to our Pi.  We strapped all of the address pins to ground, which puts it at address 0x50, which we were able to confirm with <code>i2cdetect</code>.</p>
+
+<p style="text-align:center;"> <a href="https://cdn.sparkfun.com/assets/learn_tutorials/4/4/9/i2c-0.jpg"><img src="./Raspberry Pi SPI and I2C Tutorial - learn.sparkfun.com_files/i2c-0.jpg" alt="alt text"></a></p>
+
+<p style="text-align:center;"> <em>EEPROM on breadboard</em></p>
+
+<p>Pull the EEPROM utilities mentioned above.  The file <code>test_settings.txt</code> is a human-readable example of an EEPROM file.  For testing purposes, we edited this file, changing the <em>vendor</em> and <em>product</em> fields to relevant information.</p>
+
+<p>The text file itself needs to be processed into a binary format before it can be written to the EEPROM.  The <code>eepmake</code> utility handles this conversion.</p>
+
+<pre><div data-code-id="code-12" class="copy-code"><button class="btn btn-default btn-sm">Copy Code</button></div><code>./eepmake  test_settings.txt test.eep
+</code></pre><div id="code-12" class="hide">./eepmake  test_settings.txt test.eep
+</div>
+
+<p>With the binary <code>test.eep</code> in hand, it can be programmed using the <code>eepflash.sh</code> script.  It takes a number of parameters, which are explained if you run it with the <code>-h</code> flag.  When writing the EEPROM, you’ll also have to approve of the operation by typing the full word <code>yes</code> when it prompts (<em>a simple <code>y</code> is not acceptable</em>).  eepflash.sh will print out the status of the write  – the 118 bytes written matches the length of the test.eep file we generated above.</p>
+
+<pre><div data-code-id="code-13" class="copy-code"><button class="btn btn-default btn-sm">Copy Code</button></div><code>sudo sh ./eepflash.sh -w -f=test.eep -t=24c256
+This will disable the camera so you will need to REBOOT after this process completes.
+This will attempt to write to i2c address 0x50. Make sure there is an eeprom at this address.
+This script comes with ABSOLUTELY no warranty. Continue only if you know what you are doing.
+Do you wish to continue? (yes/no): yes
+Writing...
+0+1 records in
+0+1 records out
+118 bytes (118 B) copied, 2.33811 s, 0.1 kB/s
+Done.
+</code></pre><div id="code-13" class="hide">sudo sh ./eepflash.sh -w -f=test.eep -t=24c256
+This will disable the camera so you will need to REBOOT after this process completes.
+This will attempt to write to i2c address 0x50. Make sure there is an eeprom at this address.
+This script comes with ABSOLUTELY no warranty. Continue only if you know what you are doing.
+Do you wish to continue? (yes/no): yes
+Writing...
+0+1 records in
+0+1 records out
+118 bytes (118 B) copied, 2.33811 s, 0.1 kB/s
+Done.
+</div>
+
+<p>As advised by that output, it is time to reboot.</p>
+
+<p>When the system comes back up, you should have some new filesystem nodes at <code>/proc/device-tree/hat</code></p>
+
+<pre><div data-code-id="code-14" class="copy-code"><button class="btn btn-default btn-sm">Copy Code</button></div><code>pi@raspberrypi /proc/device-tree/hat $ ls -al
+total 0
+drwxr-xr-x  2 root root  0 Oct 27 20:16 .
+drwxr-xr-x 15 root root  0 Oct 27 20:16 ..
+-r--r--r--  1 root root  4 Oct 27 20:16 name
+-r--r--r--  1 root root 21 Oct 27 20:16 product
+-r--r--r--  1 root root  7 Oct 27 20:16 product_id
+-r--r--r--  1 root root  7 Oct 27 20:16 product_ver
+-r--r--r--  1 root root 37 Oct 27 20:16 uuid
+-r--r--r--  1 root root 24 Oct 27 20:16 vendor
+</code></pre><div id="code-14" class="hide">pi@raspberrypi /proc/device-tree/hat $ ls -al
+total 0
+drwxr-xr-x  2 root root  0 Oct 27 20:16 .
+drwxr-xr-x 15 root root  0 Oct 27 20:16 ..
+-r--r--r--  1 root root  4 Oct 27 20:16 name
+-r--r--r--  1 root root 21 Oct 27 20:16 product
+-r--r--r--  1 root root  7 Oct 27 20:16 product_id
+-r--r--r--  1 root root  7 Oct 27 20:16 product_ver
+-r--r--r--  1 root root 37 Oct 27 20:16 uuid
+-r--r--r--  1 root root 24 Oct 27 20:16 vendor
+</div>
+
+<p>If we inspect the contents of those notes, we see the values that we put in the test_settings.txt file:</p>
+
+<pre><div data-code-id="code-15" class="copy-code"><button class="btn btn-default btn-sm">Copy Code</button></div><code>pi@raspberrypi/proc/device-tree/hat $ cat vendor
+SparkFun Electronics
+
+pi@raspberrypi /proc/device-tree/hat $ cat product
+EEPROM Testing
+</code></pre><div id="code-15" class="hide">pi@raspberrypi/proc/device-tree/hat $ cat vendor
+SparkFun Electronics
+
+pi@raspberrypi /proc/device-tree/hat $ cat product
+EEPROM Testing
+</div>      </div>
+          <div class="section tutorial-page">
+        <h2 id="tr">Troubleshooting</h2>
+        <p>If you’ve gone through raspi-config and enabled the SPI/I2c from ‘Advanced Options’, yet the devices are not in the device tree, don’t lose hope.  There are two files that should be examined.  We found that somtimes the raspi-config utility doesn’t solve the problem, depending on what version of Pi, where raspbian was sourced from, and when the last update has occurred.</p>
+
+<h3>Check /boot/config.txt</h3>
+
+<p>Sometimes the raspi-config tool will incorrectly edit /boot/config.txt while selecting the advanced settings.  What happens is an erroneous control-char is placed in the file.</p>
+
+<div class="well" style="font-family: Courier New; font-size: 12px; color: black">
+# NOOBS Auto-generated Settings:<br>
+hdmi_force_hotplug=1<br>
+config_hdmi_boost=4<br>
+overscan_left=24<br>
+overscan_right=24<br>
+overscan_top=16<br>
+overscan_bottom=16<br>
+disable_overscan=0<b>^M</b>dtparam=spi=on<br>
+dtparam=i2c_arm=on<br>
+</div>
+
+
+<p><em>After configuration with raspi-config, /boot/config.txt contains a strange <code>^M</code> character</em></p>
+
+<p>Fix the line breaking in the file so it looks something like this:</p>
+
+<div class="well" style="font-family: Courier New; font-size: 12px; color: black">
+# NOOBS Auto-generated Settings:<br>
+hdmi_force_hotplug=1<br>
+config_hdmi_boost=4<br>
+overscan_left=24<br>
+overscan_right=24<br>
+overscan_top=16<br>
+overscan_bottom=16<br>
+disable_overscan=0<br>
+dtparam=spi=on<br>
+dtparam=i2c_arm=on<br>
+</div>
+
+
+<h3>Check /etc/modules</h3>
+
+<p>If they are not present, add the following to the end of <code>/etc/modules</code></p>
+
+<div class="well" style="font-family: Courier New; 
+font-size: 12px; color: black">
+spi-dev<br>
+i2c-dev<br>
+</div>
+
+
+<h3>Reboot the system</h3>
+
+<p>After checking the files, reboot by issuing <code>sudo reboot</code> or <code>sudo shutdown -r now</code>.</p>      </div>
+          <div class="section tutorial-page">
+        <h2 id="resources--going-further">Resources &amp; Going Further</h2>
+        <h2>Resources</h2>
+
+<ul>
+<li>If you’re really curious about the nitty-gritty internal details of I2C and SPI, you might want to read the source code of Wiring Pi, which you can clone from <a href="https://git.drogon.net/?p=wiringPi;a=tree">here</a>.</li>
+<li>Additionally, you can learn about the Linux underpinnings of these interfaces documented at <a href="https://www.kernel.org/">kernel.org</a>. The <a href="https://www.kernel.org/doc/Documentation/spi/spi-summary">SPI</a> documentation seems to be more complete than its <a href="https://www.kernel.org/doc/Documentation/i2c/dev-interface">I2C</a> sibling.</li>
+<li>If the example code here isn’t working, you should check for updated versions on the 40-pin Pi Wedge <a href="https://github.com/sparkfun/Pi_Wedge_40-Pin_PreAssembled/tree/master/software">GitHub Repository</a>.</li>
+<li>The way that I2C and SPI devices are enabled in Raspbian has changed significantly in recent revisions.  <a href="https://www.raspberrypi.org/forums/viewtopic.php?f=28&t=97314">This forum post</a> explains how to re-enable the interfaces if they disappeared in an upgrade.</li>
+<li>The HAT specifications and related information are hosted on <a href="https://github.com/raspberrypi/hats">GitHub</a>.  If you’re designing a HAT, you’ll want to start by reading the <a href="https://github.com/raspberrypi/hats/blob/master/designguide.md">HAT Design Guide</a>, and possibly perusing the <a href="http://www.raspberrypi.org/forums/viewforum.php?f=100">B+ addons</a> forum.</li>
+<li><a href="https://filezilla-project.org/">Filezilla</a> is a convenient FTP &amp; SFTP client, which is useful for getting files to and from a Pi.</li>
+<li><a href="http://www.putty.org/">PuTTY</a> is a terminal program that has serial, telnet and SSH modes.</li>
+</ul>
+
+
+<h2>Going Further</h2>
+
+<ul>
+<li>The Pi <a href="https://sparkle.internal.sparkfun.com/sparkle/learn_tutorials/424">gPIo tutorial</a> explains how to use the digital I/O pins on your Pi.</li>
+<li>The <a href="https://sparkle.internal.sparkfun.com/sparkle/products/13717">Pi Wedge</a> gives you a convenient way to access the SPI and I2C interfaces on your Pi.</li>
+</ul>
+
+
+<p>For more information about the Raspberry Pi and the software described here, please visit their sites.</p>
+
+<ul>
+<li><a href="http://raspberrypi.org/">The Raspberry Pi Foundation</a></li>
+<li>The Pi Foundation’s <a href="http://www.raspberrypi.org/forums/viewforum.php?f=100">B+ Addons</a> forum.</li>
+<li>The Pi Foundation’s GitHub repository for the <a href="https://github.com/raspberrypi/hats">Raspberry Pi B+ HATs</a>.</li>
+<li>The eLinux.org <a href="http://elinux.org/RPi_Peripherals">Raspberry Pi peripherals</a> guide</li>
+<li><a href="http://wiringpi.com/">WiringPi</a></li>
+<li><a href="http://sourceforge.net/projects/raspberry-gpio-python/">RPi.GPIO module</a></li>
+<li>Some notes about increasing the available current from the <a href="https://projects.drogon.net/testing-setting-the-usb-current-limiter-on-the-raspberry-pi-b/">B+ USB ports</a>.</li>
+</ul>
+
+
+<p>If you have any problems or questions, our <a href="https://www.sparkfun.com/static/contact">technical support department</a> can help.  Please don’t hesitate to contact us. We also love to hear about your projects!</p>      </div>
+    
+        <div class="share-link-inline">
+
+  <a class="share-link-toggle" href="https://learn.sparkfun.com/tutorials/raspberry-pi-spi-and-i2c-tutorial#">
+    <span class="share-title">
+      <span class="sfe-icon-share"></span>
+      Share    </span>
+  </a>
+
+  <div class="share-link-inner dialog">
+    Use this URL to share:<br>
+    <input class="form-control input-sm" type="text" value="http://sfe.io/t449" onclick="$(this).select();">
+
+    <div class="share-social">
+
+      <a rel="nofollow" onclick="return $(this).sfeutil(&#39;track_link&#39;,this,&#39;Share&#39;,&#39;clicked&#39;,&#39;googleplus&#39;);" href="https://plus.google.com/share?url=http%3A%2F%2Fsfe.io%2Ft449" title="Share on Google+"><span class="sfe-icon-google-plus hidetext"><span>Share on Google+</span></span></a>
+
+      <a rel="nofollow" onclick="return $(this).sfeutil(&#39;track_link&#39;,this,&#39;Share&#39;,&#39;clicked&#39;,&#39;tumblr&#39;);" href="https://www.tumblr.com/share/link?url=http%3A%2F%2Fsfe.io%2Ft449&name=Raspberry+Pi+SPI+and+I2C+Tutorial" title="Share on Tumblr"><span class="sfe-icon-tumblr hidetext"><span>Share on Tumblr</span></span></a>
+
+      <a rel="nofollow" onclick="return $(this).sfeutil(&#39;track_link&#39;,this,&#39;Share&#39;,&#39;clicked&#39;,&#39;reddit&#39;);" href="https://www.reddit.com/submit?url=http%3A%2F%2Fsfe.io%2Ft449" title="Submit to reddit"><span class="sfe-icon-reddit hidetext"><span>Submit to reddi</span></span></a>
+
+    </div>
+
+    </div>
+  
+  <div class="share-social">
+
+    <a rel="nofollow" onclick="return $(this).sfeutil(&#39;track_link&#39;,this,&#39;Share&#39;,&#39;clicked&#39;,&#39;twitter&#39;);" href="https://twitter.com/intent/tweet?text=Raspberry+Pi+SPI+and+I2C+Tutorial&url=http%3A%2F%2Fsfe.io%2Ft449&via=sparkfun" title="Share on Twitter"><span class="sfe-icon-twitter hidetext"><span>Share on Twitter</span></span></a>
+
+    <a rel="nofollow" onclick="return $(this).sfeutil(&#39;track_link&#39;,this,&#39;Share&#39;,&#39;clicked&#39;,&#39;facebook&#39;);" href="http://www.facebook.com/sharer.php?u=http%3A%2F%2Fsfe.io%2Ft449&t=Raspberry+Pi+SPI+and+I2C+Tutorial" title="Share on Facebook"><span class="sfe-icon-facebook-nobox hidetext"><span>Share on Facebook</span></span></a>
+
+          <a rel="nofollow" onclick="return $(this).sfeutil(&#39;track_link&#39;,this,&#39;Share&#39;,&#39;clicked&#39;,&#39;pinterest&#39;);" href="https://www.pinterest.com/pin/create/button/?url=http%3A%2F%2Fsfe.io%2Ft449&media=https%3A%2F%2Fcdn.sparkfun.com%2F%2Fr%2F500-1000%2Fassets%2Flearn_tutorials%2F4%2F4%2F9%2Fwedge-n-pi.jpg&description=Raspberry+Pi+SPI+and+I2C+Tutorial" title="Pin It"><span class="sfe-icon-pinterest hidetext"><span>Pin It</span></span></a>
+    
+  </div>
+
+  
+</div>
+
+  </div>
+
+  <div class="col-sm-4" id="nav-pages">
+    <div id="sidebar_affix" class="affix-top" style="">
+
+      <div id="tutorial-pages" class="list-group">
+        <a class="list-group-item"><b>Sections</b></a>
+                          <a data-pagename="introduction" class="list-group-item" href="https://learn.sparkfun.com/tutorials/raspberry-pi-spi-and-i2c-tutorial#introduction">
+            Introduction          </a>
+                  <a data-pagename="background--software-setup" class="list-group-item" href="https://learn.sparkfun.com/tutorials/raspberry-pi-spi-and-i2c-tutorial#background--software-setup">
+            Background &amp; Software Setup          </a>
+                  <a data-pagename="connecting-to-the-ports" class="list-group-item" href="https://learn.sparkfun.com/tutorials/raspberry-pi-spi-and-i2c-tutorial#connecting-to-the-ports">
+            Connecting To The Ports          </a>
+                  <a data-pagename="spi-on-pi" class="list-group-item" href="https://learn.sparkfun.com/tutorials/raspberry-pi-spi-and-i2c-tutorial#spi-on-pi">
+            SPI on Pi          </a>
+                  <a data-pagename="i2c-on-pi" class="list-group-item" href="https://learn.sparkfun.com/tutorials/raspberry-pi-spi-and-i2c-tutorial#i2c-on-pi">
+            I2C on Pi          </a>
+                  <a data-pagename="i2c-0-on-40-pin-pi-boards" class="list-group-item" href="https://learn.sparkfun.com/tutorials/raspberry-pi-spi-and-i2c-tutorial#i2c-0-on-40-pin-pi-boards">
+            I2C-0 on 40-pin Pi Boards          </a>
+                  <a data-pagename="tr" class="list-group-item" href="https://learn.sparkfun.com/tutorials/raspberry-pi-spi-and-i2c-tutorial#tr">
+            Troubleshooting          </a>
+                  <a data-pagename="resources--going-further" class="list-group-item" href="https://learn.sparkfun.com/tutorials/raspberry-pi-spi-and-i2c-tutorial#resources--going-further">
+            Resources &amp; Going Further          </a>
+              </div>
+
+      <div class="list-group">
+        <a class="list-group-item" href="https://learn.sparkfun.com/tutorials/raspberry-pi-spi-and-i2c-tutorial/discuss">
+          Comments
+          <span class="badge">0</span>
+        </a>
+        <a class="list-group-item" href="https://learn.sparkfun.com/tutorials/raspberry-pi-spi-and-i2c-tutorial/introduction">
+          View Paginated
+        </a>
+        <a class="list-group-item" href="https://learn.sparkfun.com/tutorials/raspberry-pi-spi-and-i2c-tutorial#" onclick="window.print(); return false;">
+          Print
+        </a>
+      </div>
+
+      <ul class="list-group">
+        <li class="list-group-item"><b>Tags</b></li>
+        <li class="list-group-item"><ul class="tags-list">
+  <li>
+    <a class="tag" href="https://learn.sparkfun.com/tutorials/tags/concepts">Concepts</a>  </li>
+  <li>
+    <a class="tag" href="https://learn.sparkfun.com/tutorials/tags/programming">Programming</a>  </li>
+  <li>
+    <a class="tag" href="https://learn.sparkfun.com/tutorials/tags/raspberry-pi">Raspberry Pi</a>  </li>
+</ul>
+</li>
+      </ul>
+
+      <ul class="list-group">
+        <li class="list-group-item"><b>License</b></li>
+        <li class="list-group-item">
+          <span class="sfe-icon-cc">
+            <span class="visuallyhidden">Creative Commons</span>
+          </span>
+          <small>tutorials are <a href="http://creativecommons.org/licenses/by-nc-sa/3.0/" target="new">CC BY-NC-SA 3.0</a></small>
+        </li>
+      </ul>
+
+    </div>
+  </div>
+
+</div>
+
+<script type="text/javascript">
+  require(['tutorial', 'jquery.imagesloaded'], function() {
+    $('#tutorial').tutorial();
+  });
+</script>
+
+      </div> <!-- /container -->
+    </div> <!-- /content -->
+
+    
+<footer>
+
+<div class="social">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12 col-sm-12 col-md-12">
+        <div class="sharing-ingenuity">
+          <span class="sfe-icon-flame"></span>
+          <span class="text"><span class="text-top">Sharing<br></span>Ingenuity</span>
+        </div>
+        <ul class="spew">
+          <li><a href="http://www.github.com/sparkfun" target="_blank" class="sfe-icon-github"><span class="visuallyhidden">GitHub</span></a></li>
+          <li><a href="http://www.youtube.com/sparkfun" target="_blank" class="sfe-icon-youtube"><span class="visuallyhidden">YouTube</span></a></li>
+          <li><a href="http://www.vimeo.com/sparkfun" target="_blank" class="sfe-icon-vimeo"><span class="visuallyhidden">Vimeo</span></a></li>
+          <li><a href="http://www.facebook.com/SparkFun" target="_blank" class="sfe-icon-facebook"><span class="visuallyhidden">Facebook</span></a></li>
+          <li><a href="https://plus.google.com/106084846822083498483/" target="_blank" class="sfe-icon-google-plus"><span class="visuallyhidden">Google Plus</span></a></li>
+          <li><a href="http://www.flickr.com/photos/sparkfun/" target="_blank" class="sfe-icon-flickr"><span class="visuallyhidden">Flickr</span></a></li>
+          <li><a href="https://twitter.com/#!/sparkfun" target="_blank" class="sfe-icon-twitter"><span class="visuallyhidden">Twitter</span></a></li>
+          <li><a href="https://www.sparkfun.com/feeds" class="sfe-icon-feed"><span class="visuallyhidden">RSS</span></a></li>
+        </ul>
+        <div class="newsletter">
+          <form action="https://learn.sparkfun.com/newsletter/subscribe_email" method="post" class="form-inline" id="js-newsletter_subscribe">
+            <div class="form-group">
+              <input type="email" class="form-control" name="newsletter_email" placeholder="Email Address">
+            </div>
+            <div class="form-group">
+              <input type="submit" class="btn btn-default" value="Subscribe to Education Newsletter">
+            </div>
+          </form>
+        </div>
+      </div>
+    </div><!-- end .row -->
+  </div><!-- end .container -->
+</div><!-- end .social -->
+
+<div class="container">
+
+    <div class="row">
+
+    <div class="subfooter subfooter-about">
+      <p>
+        <b>SparkFun</b> is an online retail store that sells the bits and pieces to
+        make your electronics projects possible. Whether it's a robot that can
+        cook your breakfast or a GPS cat tracking device, our products and
+        resources are designed to make the world of electronics more accessible.
+      </p>
+      <p>
+        In addition to products, SparkFun also offers
+        classes and online tutorials to help educate
+        individuals in the wonderful world of embedded electronics.
+      </p>
+
+      <div class="row">
+
+        <div class="col-sm-6">
+          <ul>
+            <li><b>About Us</b>
+            </li><li><a href="https://www.sparkfun.com/static/about">About SparkFun</a></li>
+            <li><a href="https://learn.sparkfun.com/about">SparkFun Education</a></li>
+            <li><a title="RSS Feeds" href="https://www.sparkfun.com/feeds">Feeds <span class="sfe-icon-feed"></span></a></li>
+            <li><a href="https://www.sparkfun.com/jobs">Jobs</a></li>
+            <li><a href="https://www.sparkfun.com/static/contact">Contact</a></li>
+          </ul>
+        </div>
+
+        <div class="col-sm-6">
+          <ul>
+            <li><b>Help</b></li>
+            <li><a href="https://www.sparkfun.com/support">Customer Service</a></li>
+            <li><a href="https://www.sparkfun.com/support#ShippingPolicy">Shipping</a></li>
+            <li><a href="https://www.sparkfun.com/returns">Return Policy</a></li>
+            <li><a href="https://www.sparkfun.com/static/faq">FAQ</a></li>
+                      </ul>
+        </div>
+
+      </div>
+
+      <div class="row">
+
+        <div class="col-sm-6">
+          <ul>
+            <li><b>Programs</b></li>
+            <li><a href="https://learn.sparkfun.com/educator_discount">Educator Discount</a></li>
+            <li><a href="https://www.sparkfun.com/sponsor">Partner with SparkFun</a></li>
+            <li><a href="https://www.sparkfun.com/project_calls">Tell Us About Your Project</a></li>
+            <li><a href="https://learn.sparkfun.com/tutorials/how-to-sell-your-widget-on-sparkfun">Sell Your Widget on SparkFun</a></li>
+            <li><a href="https://www.sparkfun.com/distributors/apply">Become a SparkFun Distributor</a></li>
+          </ul>
+        </div>
+
+        <div class="col-sm-6">
+          <ul>
+            <li><b>Community</b></li>
+            <li><a href="https://forum.sparkfun.com/">Forum</a></li>
+            <li><a href="https://www.sparkfun.com/news/263">SparkFun IRC Channel</a></li>
+            <li><a href="https://www.sparkfun.com/quiz">Take the SparkFun Quiz</a></li>
+            <li><a href="https://www.kickstarter.com/pages/sparkfun">SparkFun Kickstarter Projects</a></li>
+            <li><a href="https://www.sparkfun.com/distributors">Distributors</a></li>
+          </ul>
+        </div>
+
+      </div><!-- end .row -->
+
+    </div>
+
+    <div id="feedback" class="subfooter subfooter-woym">
+      <form id="woym_form" class="feedback" action="https://learn.sparkfun.com/feedback/mind.json" onsubmit="$(this).sfeutil(&#39;mind_feedback&#39;); return false;" method="POST">
+        <div class="error" id="error_feedback" style="display: none"></div>
+        <input type="hidden" name="sparkaptcha" id="sparkaptcha" value="0">
+
+        <div class="form-group">
+          <label for="feedback_textarea" class="control-label">What's on your mind?</label>
+          <div class="controls">
+            <textarea id="feedback_textarea" class="form-control" name="feedback_text" required=""></textarea>
+            <div class="error" id="error_feedback_text" style="display: none"></div>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="feedback_dest" class="control-label">For which department?</label>
+          <select name="dest" class="form-control" id="feedback_dest">
+            <option value="general">General</option>
+            <option value="cust">Customer Service</option>
+            <option value="tech">Tech Support</option>
+                          <option value="edu">Education Department</option>
+                      </select>
+        </div>
+
+        <div class="form-group">
+          <label for="feedback_email" class="control-label">
+            Please include your email address if you'd like us to respond to a specific question.
+          </label>
+
+          <div class="input-group">
+            <span class="input-group-addon"><span class="glyphicon glyphicon-envelope"></span></span>
+            <input type="text" class="form-control" id="feedback_email" name="email" placeholder="email address">
+          </div>
+          <div class="error" id="error_feedback_email" style="display: none"></div>
+
+        </div>
+
+        <button type="submit">Submit</button>
+      </form>
+    </div>
+
+  </div><!-- end .row -->
+  
+  <ul class="copyleft">
+    <li>SparkFun Electronics <a href="https://www.sparkfun.com/news/300">®</a></li>
+    <li><a href="http://maps.google.com/maps?f=q&source=s_q&hl=en&geocode=&q=6333+Dry+Creek+Parkway,+Niwot,+CO+80503">Niwot, Colorado</a></li>
+    <li><a href="https://www.sparkfun.com/support">Customer Service</a></li>
+    <li><a href="https://www.sparkfun.com/sitemap">Site Map</a></li>
+    <li><a href="https://www.sparkfun.com/terms">Terms of Service</a></li>
+    <li><a href="https://www.sparkfun.com/privacy">Privacy Policy</a></li>
+    <li class="desktop-toggle">
+              <a href="https://www.sparkfun.com/account/mobile_toggle?redirect=%2Flearn%2Ftutorials%2Fraspberry-pi-spi-and-i2c-tutorial">Desktop Site</a>          </li>
+  </ul>
+
+</div><!-- end .container -->
+
+</footer>
+
+    <div class="nav-account">
+  <ul class="nav nav-tabs">
+    <li class="visible-xs">
+      <a class="nav-toggle-account back" href="https://learn.sparkfun.com/tutorials/raspberry-pi-spi-and-i2c-tutorial#">Your Account</a>
+    </li>
+          <li class="">
+        <a href="https://www.sparkfun.com/account/login?redirect=%2Flearn%2Ftutorials%2Fraspberry-pi-spi-and-i2c-tutorial" data-toggle="modal" data-target="#login_modal" data-remote="false">Log In</a>
+      </li>
+          <li class="">
+        <a href="https://www.sparkfun.com/account/make">Register</a>
+      </li>
+      </ul>
+</div>
+
+      </div><!-- end .wrapper-inner -->
+    </div><!-- end .wrapper -->
+
+    <!-- Login Modal -->
+<div class="modal fade" id="login_modal" tabindex="-1" role="dialog" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button>
+        <h4 class="modal-title">Log In</h4>
+        <p class="modal-header-msg"></p>
+      </div>
+      <div class="modal-body">
+        <form role="form" action="https://www.sparkfun.com/account/login" method="post">
+          <input type="hidden" name="redirect" value="/learn/tutorials/raspberry-pi-spi-and-i2c-tutorial">
+          <div class="form-group">
+            <label for="login-username">Email</label>
+            <input type="email" tabindex="1" name="user" id="login-username" class="form-control">
+          </div>
+          <div class="form-group">
+            <label for="login-password">Password</label>
+            <input tabindex="2" type="password" name="passwd" id="login-password" class="form-control">
+          </div>
+          <div class="form-group">
+            <input type="submit" value="Log In" tabindex="3" class="btn btn-action">
+          </div>
+        </form>
+        <p>
+          <a href="https://www.sparkfun.com/account/forgot_password">Forgot your password?</a>          <br>
+          No account? <a id="btn_register_account" href="https://www.sparkfun.com/account/make">Register one!</a>        </p>
+      </div>
+    </div>
+  </div>
+</div>
+  
+
+
+<ul class="ui-autocomplete ui-front ui-menu ui-widget ui-widget-content ui-corner-all" id="ui-id-1" tabindex="0" style="display: none;"></ul><div id="global-zeroclipboard-html-bridge" class="global-zeroclipboard-container" style="position: absolute; left: 0px; top: -9999px; width: 92.4375px; height: 30px; z-index: 999999999;">      <object classid="clsid:d27cdb6e-ae6d-11cf-96b8-444553540000" id="global-zeroclipboard-flash-bridge" width="100%" height="100%">         <param name="movie" value="/js/ZeroClipboard.swf?noCache=1447446409521">         <param name="allowScriptAccess" value="sameDomain">         <param name="scale" value="exactfit">         <param name="loop" value="false">         <param name="menu" value="false">         <param name="quality" value="best">         <param name="bgcolor" value="#ffffff">         <param name="wmode" value="transparent">         <param name="flashvars" value="trustedOrigins=learn.sparkfun.com%2C%2F%2Flearn.sparkfun.com%2Chttps%3A%2F%2Flearn.sparkfun.com&amp;jsModuleId=ZeroClipboard.min">         <embed src="/js/ZeroClipboard.swf?noCache=1447446409521" loop="false" menu="false" quality="best" bgcolor="#ffffff" width="100%" height="100%" name="global-zeroclipboard-flash-bridge" allowscriptaccess="sameDomain" allowfullscreen="false" type="application/x-shockwave-flash" wmode="transparent" pluginspage="http://www.macromedia.com/go/getflashplayer" flashvars="trustedOrigins=learn.sparkfun.com%2C%2F%2Flearn.sparkfun.com%2Chttps%3A%2F%2Flearn.sparkfun.com&amp;jsModuleId=ZeroClipboard.min" scale="exactfit">                </object></div></body></html>

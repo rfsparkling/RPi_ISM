@@ -1,0 +1,1001 @@
+/*
+ *-----------------------------------------------------------------
+ * Licensed Materials - Property of IBM
+ *
+ * WebSphere Commerce
+ *
+ * (C) Copyright IBM Corp. 2008 All Rights Reserved.
+ *
+ * US Government Users Restricted Rights - Use, duplication or
+ * disclosure restricted by GSA ADP Schedule Contract with
+ * IBM Corp.
+ *-----------------------------------------------------------------
+ */ /* Perform mass width resets */
+body,html,div#page,div#content_wrapper,table#order_details,div.body,div#shipping,div#total_breakdown,div#box
+div#article {
+	width: auto;
+}
+
+/* Perform mass element hiding */
+div#head,div#footer,div#page_shadow,div#checkout_crumb div.crumb span a,div#box div.content_footer,div#checkout_crumb,div#header_nav,div#header_links,div#header-search,div#box div.main_header div.left img,div#box div.main_header div.right img,div#box div.contentline div.left img,div#box div.contentline div.right img,div.title,div.left_nav_options,div.left_nav,div#left_nav,div#sidebar,div.left_nav_container,#breadcrumb,div.contentline,div.my_account div.body div.order_details_my_account,div.my_account div#WC_OrderShipmentDetails_div_2,div.my_account div#WC_OrderShipmentDetails_div_6
+	{
+	display: none;
+	position: relative;
+	margin: 0;
+	padding: 0;
+	width: 0;
+	height: 0;
+}
+
+/* Remove background images from some elements */
+body,#breadcrumb,#header,div#box div.main_header,div#page,div#page_shadow
+	{
+	background: #fff url('');
+}
+
+/*Make it so that no hidden elements overflow the page*/
+#page {
+	/*overflow: hidden; This is breaking lots of the checkout print view, can we check pages if we need to use this */
+	
+}
+
+/*Header realignment and addition of Order Confirmation text*/
+#header,WC_CachedHeaderDisplay_div_1,CatalogSearchForm,header_links {
+	margin-left: -20px;
+	z-index: -1;
+	width: 100px;
+	overflow: hidden;
+	border: 2px;
+}
+
+/* Display the printer header*/
+#orderConfirmationHeader {
+	display: block;
+	float: right;
+	font-size: 7pt;
+}
+
+/* Layout the printer header store logo to the left of the header text*/
+#orderConfirmationHeader #orderConfirmImage {
+	width: 200px;
+	float: left;
+}
+
+/* Layout the printer header text to the right of the header store logo*/
+#orderConfirmationHeader #orderConfirmText {
+	width: 350px;
+	padding-left: 200px;
+	padding-top: 10px;
+	float: left;
+}
+
+/* Remove border from bottom of billing information section */
+#billing th,#billing td {
+	border-bottom: none;
+}
+
+/* Re-aligns shipping address information*/
+#shipping .shipping_address {
+	padding: 1px 50px 5px 3px
+}
+
+/* Re-aligns shipping method information*/
+#shipping .shipping_method {
+	float: left;
+	padding: 1px 0 5px 3px;
+}
+
+/* Adds a line under the Shipping Information title*/
+div#box div.body {
+	border-top: 1px solid #C9D3DE;
+	border-left: 0;
+	border-right: 0;
+	border-bottom: 0;
+}
+
+/* Removes a line from above the Shipping Information title */
+div#box div#WC_OrderShipmentDetails_div_6 {
+	border: none;
+}
+
+/*Sets the width of the "Product" column of the product list grid*/
+table#order_details td.details {
+	width: 460px;
+}
+
+/*Sets the width of the "Total" column in the product list grid.*/
+table#order_details td.total {
+	width: 70px;
+	padding-right: 17px;
+}
+
+/* Sets the width of Shipping Information and Billing Information sections 
+of the page and removes the right and left borders. */
+#box .my_account .body {
+	width: 674px;
+	border-right: none;
+	border-left: none;
+}
+
+/* Sets the width for the order totals section as well as insetting it from the right. */
+#total_breakdown {
+	width: 600px;
+	padding-right: 17px;
+}
+
+/*  #
+	#
+	(PR) new PF print styles.
+	This could completely change as awaiting updates for the styleguide 
+	#
+	#
+	*/
+h1 {
+	font-size: 18pt;
+}
+
+h2 {
+	font-size: 14pt;
+}
+
+p,ul,td {
+	font-size: 8pt;
+}
+
+.rohsCertificate #article {
+	font-family: verdana;
+	margin: 0;
+	width: 100%
+}
+
+#article ul {
+	padding-left: 0
+}
+
+/* ORDER REVIEW PRINTING */
+#bodyContainer.layoutFour #article,#bodyContainer {
+	margin-left: 0;
+}
+
+/*-- PDP PAGE --*/ /* Favourites link */
+h1,h2,h3,h4,h5 {
+	color: #333;
+	font-family: Arial, Helvetica, sans-serif;
+	font-weight: bold;
+	width: 100%;
+}
+
+table {
+	border-left: 1px solid #999;
+	border-top: 1px solid #999;
+}
+
+table {
+	border-spacing: 0;
+}
+
+#bodyContainer #product #productHeader {
+	overflow: hidden;
+}
+
+#productHeader #pdpHeaderBar {
+	float: right;
+	margin: 8px 0 12px;
+}
+
+#pdpHeaderBar .barItem {
+	float: left;
+	padding-left: 10px;
+}
+
+#product #mainPdpWrapper {
+	overflow: hidden;
+	padding-right: 12px;
+}
+
+#product #mainPdpWrapper #pdpDetailsWrap {
+	max-width: 950px;
+}
+
+#product #pdpDetailsWrap #pdpDetails {
+	float: left;
+	width: 60%;
+}
+
+#mainPdpWrapper #pdpDetails #productImages {
+	float: left;
+	width: 180px;
+}
+
+#productImages .productMain {
+	height: 180px;
+	width: 180px;
+}
+
+#productImages p.imageCaption {
+	font-size: 0.909em;
+	font-style: italic;
+}
+
+#pdpDetails #productDescription {
+	float: left;
+	padding-left: 12px;
+	width: 51%;
+}
+
+#mainPdpWrapper #pdpDetails .brandLogo {
+	padding-bottom: 20px;
+	width: 150px;
+}
+
+#mainPdpWrapper #pdpDetailsWrap .pdpProductContent {
+	float: left;
+	width: 110%;
+}
+
+#pdpDetails .pdpProductContent h2 {
+	margin-top: 24px;
+}
+
+.productDisplay .pdpProductContent .productAttributes {
+	float: left;
+	margin: 12px 0 0;
+	width: 90%;
+}
+
+.productDisplay .productAttributes li {
+	list-style: disc outside none;
+	margin-bottom: 10px;
+	margin-left: 15px;
+	vertical-align: top;
+	width: auto;
+}
+
+.productDisplay .productAttributes span.product {
+	font-weight: bold;
+}
+
+.productDisplay .productAttributes span {
+	float: left;
+	max-width: 350px;
+	vertical-align: top;
+	width: 50%;
+}
+
+.productDisplay .productAttributes span span.uom {
+	float: none;
+	width: auto;
+}
+
+#pdpDetails .productInfo {
+	clear: both;
+	font-weight: bold;
+}
+
+.productDisplay .pdpProductContent .productInfo {
+	clear: both;
+	font-weight: bold;
+}
+
+.pdpProductContent .productInfo .buttons {
+	clear: both;
+}
+
+.pdpProductContent .productInfo span.clearBoth {
+	float: left;
+	margin-top: 10px;
+}
+
+.pdpProductContent .productInfo a.fontNormal {
+	font-weight: normal;
+}
+
+.productDisplay .productInfo p {
+	clear: both;
+	padding: 5px 0;
+}
+
+.productDisplay .productInfo ul {
+	list-style: none outside none;
+}
+
+#mainPdpWrapper .pdpProductContent #cadInformation {
+	padding: 12px 0 20px;
+}
+
+.productDisplay .pdpProductContent .row {
+	display: block;
+	overflow: hidden;
+	padding: 12px 0;
+}
+
+#product #mainPdpWrapper {
+	overflow: hidden;
+}
+
+/* Availability and Pricing */
+#product #pdpDetailsWrap #priceWrap {
+	float: right;
+	overflow: hidden;
+	width: 232px;
+}
+
+#product #mainPdpWrapper #pdpDetailsWrap {
+	max-width: 705px;
+}
+
+/* Availability Part */
+#mainPdpWrapper #priceWrap .pdpHighLightWrap {
+	overflow: hidden;
+	width: 100%;
+}
+
+#priceWrap .pdpHighLightWrap .highLightBox {
+	overflow: hidden;
+	border: 2px solid #ccc;
+	margin-bottom: 12px;
+}
+
+#priceWrap .highLightBox .highLightBoxHeading {
+	background: none repeat scroll 0 0 #f5f5f5;
+	border-bottom: 1px solid #ccc;
+	margin-bottom: 10px;
+	overflow: hidden;
+}
+
+#priceWrap .highLightBox .highLightBoxHeading h3 {
+	font-weight: 600;
+	clear: none;
+	margin: 7px 0 6px;
+	padding-left: 12px;
+	width: auto;
+}
+
+#priceWrap p {
+	line-height: 150%;
+	margin-bottom: 12px;
+	max-width: 800px;
+	clear: both;
+	padding-left: 12px;
+	width: auto;
+}
+
+#priceWrap .highLightBox .pdpToolTip {
+	clear: both;
+	float: left;
+}
+
+#priceWrap .clearBoth {
+	margin: 0 0 6px 12px;
+	padding-top: 6px;
+}
+
+div.clearBoth {
+	height: auto;
+}
+
+#priceWrap #cutOffTimesTooltip {
+	overflow: visible;
+}
+
+.qtyField input,#priceWrap .highLightBox a {
+	float: none;
+	margin: 0 0 4px;
+}
+
+#rohsCompTooltip .pfTooltip,#priceWrap .pfTooltip {
+	margin-top: 2px;
+}
+
+.pfTooltip {
+	background-image: url("../images/pfIcons/icon39.gif");
+	background-repeat: no-repeat;
+	height: 11px;
+	margin-right: 0;
+	width: 13px;
+}
+
+.pfIcon {
+	display: inline-block;
+	line-height: 14px;
+	text-indent: -999em;
+	vertical-align: top;
+}
+
+#priceWrap .highLightBox a.pdpCheckMoreStock {
+	clear: both;
+	display: block;
+	margin-left: 12px;
+}
+
+div#priceWrap a.pdpCheckMoreStock,div#priceWrap a.pdpCheck {
+	float: left;
+}
+
+.highLightBox .checkMoreStockWrap {
+	float: left;
+	height: 10px;
+	margin: 3px 2px 0 0;
+	width: 10px;
+	display: none;
+}
+
+.pfCheckMoreStock {
+	background-image: url("../images/pfIcons/icon20.gif");
+	background-repeat: no-repeat;
+	height: 10px;
+	margin: 0 0 0 2.5px;
+	width: 5px;
+}
+
+.pfIcon1 {
+	display: inline-block;
+	line-height: 14px;
+	text-indent: -999em;
+	vertical-align: top;
+}
+
+#priceWrap .highLightBox #commonInfo {
+	clear: both;
+	overflow: hidden;
+}
+
+#pdpDetailsWrap #priceWrap p {
+	clear: both;
+	padding-left: 12px;
+	width: auto;
+}
+
+#priceWrap .highLightBox #addToOrder {
+	overflow: auto;
+	padding: 10px 0 10px 13px;
+	display: block;
+	vertical-align: middle;
+	background: none repeat scroll 0 0 #f5f5f5;
+}
+
+#priceWrap #addToOrder label {
+	display: inline-block;
+	float: none;
+	font-weight: bold;
+	vertical-align: middle;
+}
+
+.highLightBox #addToOrder .qtyField {
+	display: inline-block;
+	vertical-align: middle;
+}
+
+#priceWrap #addToOrder input {
+	display: inline-block;
+	height: 17px;
+	margin: 0 5px;
+	vertical-align: middle;
+	width: 56px;
+}
+
+#priceWrap #addToOrder .btn1 {
+	display: inline-block;
+	float: none;
+	margin-bottom: 0;
+	vertical-align: middle;
+}
+
+.highLightBox #addToOrder .ajaxAddToCart {
+	border: 1px solid #848589;
+	border-radius: 4px;
+	color: #fff;
+	cursor: pointer;
+	font-size: 12px;
+	margin-right: 10px;
+	padding: 2px 9px;
+	text-decoration: none;
+	text-shadow: 0 0 0 rgba(252, 252, 252, 0.8);
+}
+
+.pfTrolleyWhite {
+	background-image: url("../images/pfIcons/icon74.gif");
+	background-repeat: no-repeat;
+	float: left;
+	height: 12px;
+	margin: 0 4px -4px 0;
+	width: 12px;
+}
+
+/*Pricing Part*/
+#mainPdpWrapper #priceWrap .pdpHighLightWrap {
+	overflow: hidden;
+	width: 100%;
+}
+
+#priceWrap .pdpHighLightWrap .highLightBox {
+	overflow: hidden;
+	border: 1px solid #ccc;
+	margin-bottom: 12px;
+}
+
+#priceWrap .highLightBox .highLightBoxHeading {
+	background: none repeat scroll 0 0 #f5f5f5;
+	border-bottom: 1px solid #ccc;
+	margin-bottom: 10px;
+	overflow: hidden;
+}
+
+#priceWrap .highLightBox .highLightBoxHeading h3 {
+	font-weight: 600;
+	clear: none;
+	margin: 7px 0 6px;
+	padding-left: 12px;
+	width: auto;
+}
+
+#priceWrap .highLightBox .tableProductDetailPrice {
+	border: medium none !important;
+	border-collapse: collapse;
+}
+
+.highLightBox table {
+	border: medium none;
+	border-spacing: 0;
+	margin-bottom: 15px;
+}
+
+.pricing td.qty,#article .pricing th {
+	text-align: left;
+}
+
+#article .pricing th,#article .pricing td {
+	border: medium none;
+	padding: 5px 0 5px 12px;
+	width: 125px;
+}
+
+.highLightBox table th {
+	background: none repeat scroll 0 0 rgba(0, 0, 0, 0);
+	line-height: 1;
+}
+
+#article .pricing th,#article .pricing td {
+	border: medium none;
+	padding: 5px 0 5px 12px;
+	text-align: left;
+	width: 125px;
+}
+
+.productDisplay .backtoTop {
+	clear: both;
+	float: right;
+}
+
+/*Legislation and Environmental*/
+.productDisplay #bodyContainer .section {
+	clear: both;
+	margin-bottom: 20px;
+	overflow: hidden;
+}
+
+#legislationEnvironmental h2 {
+	margin-top: 16px;
+}
+
+#legislationEnvironmental .hr,#productGroups .hr,.hr {
+	background: none repeat scroll 0 0 #007fac;
+	border: 0 none;
+	font-size: 1px;
+	height: 1px;
+	line-height: 1px;
+}
+
+#legislationEnvironmental ul {
+	list-style: disc outside none;
+}
+
+#legislationEnvironmental ul li {
+	float: left;
+	margin-left: 15px;
+	padding: 10px 5px 10px 0;
+	width: 30%;
+}
+
+.productDisplay .backtoTop {
+	clear: both;
+	float: right;
+}
+
+/*Similar Products*/
+.productDisplay #bodyContainer .section {
+	clear: both;
+	margin-bottom: 20px;
+	overflow: hidden;
+}
+
+#productGroups ul.productAttributes {
+	margin-top: 0;
+}
+
+#productGroups ul {
+	float: left;
+	list-style: none outside none;
+	width: 295px;
+}
+
+#productGroups ul.productAttributes li:first-child {
+	padding-top: 8px;
+}
+
+#productGroups ul.productAttributes li {
+	padding-right: 50px;
+}
+
+.productDisplay .productAttributes li {
+	list-style: disc outside none;
+	margin-bottom: 10px;
+	margin-left: 15px;
+	vertical-align: top;
+	width: auto;
+}
+
+.productDisplay .backtoTop {
+	clear: both;
+	float: right;
+}
+
+/*Customer Review*/
+.productDisplay .section {
+	clear: both;
+	display: block;
+	margin-bottom: 20px;
+	overflow: hidden;
+}
+
+.productDisplay h2 {
+	clear: left;
+}
+
+/*Community*/
+.pfRead {
+	background-image:
+		url("../../../cssSprites/src/SafeB2BStorefrontAssetStore/images/pfsprite.gif")
+		;
+	background-position: left -251px;
+	background-repeat: no-repeat;
+	height: 15px;
+	width: 16px;
+}
+
+#commSection #comContent {
+	margin: 0;
+}
+
+#comContent {
+	float: left;
+	width: 100%;
+}
+
+#community_filter_options,#comFeed .sortOptionsWrap {
+	background: none repeat scroll 0 0 #efefef;
+	border: 1px solid #ccc;
+	margin: 5px 0;
+	overflow: auto;
+	padding: 5px;
+}
+
+.productDisplay .displayNone {
+	display: none;
+}
+
+/*Associated Products*/
+.row .compareButt {
+	margin-bottom: 1.2em;
+	margin-top: 0.2em;
+	overflow: hidden;
+}
+
+#mainPdpWrapper table.genericPLP {
+	table-layout: auto;
+}
+
+table#prodAccessories {
+	width: 100%;
+}
+
+table#sProdList,table.sProdList,table#prodAccessories {
+	border-right: medium none;
+	overflow: scroll;
+}
+
+table.genericPLP {
+	border-collapse: separate;
+	clear: both;
+}
+
+table.genericPLP th {
+	line-height: 14px;
+	text-align: left;
+	vertical-align: top;
+}
+
+table thead tr th {
+	background: none repeat scroll 0 0 #d1e1e6;
+	border-right: 1px solid #999;
+	padding: 8px;
+}
+
+table.genericPLP th.compare {
+	width: 16px;
+}
+
+table.genericPLP th.partNumber {
+	width: 67px;
+}
+
+table.genericPLP th.mftrPartNumber {
+	width: 100px;
+}
+
+table.genericPLP th.mftrDescription {
+	min-width: 200px;
+}
+
+table.genericPLP th.availability {
+	width: 39px;
+}
+
+table.genericPLP th.price {
+	min-width: 105px;
+}
+
+table.genericPLP th.qty {
+	width: 55px;
+}
+
+td.compare {
+	width: 13px;
+}
+
+td {
+	border-bottom: 1px solid #999;
+	border-right: 1px solid #999;
+	padding: 8px;
+	vertical-align: top;
+}
+
+.compare input[type="checkbox"] {
+	float: left;
+	margin: 0;
+}
+
+input[type="checkbox"] {
+	border: medium none;
+}
+
+input {
+	padding: 0 0 1px;
+}
+
+input,select {
+	font-size: 1em;
+	border: 1px solid #848589;
+}
+
+input,select {
+	vertical-align: middle;
+}
+
+.productImage .prodThumbWrap {
+	height: 60px;
+	margin: 8px 0;
+	overflow: hidden;
+	width: 60px;
+}
+
+td.productImage img.prodThumb {
+	cursor: pointer;
+}
+
+.productImage .prodThumbWrap img {
+	line-height: 60px;
+	vertical-align: middle;
+}
+
+div.thumbBreaker {
+	clear: both;
+	height: 1px;
+}
+
+.iconHold {
+	width: 60px;
+}
+
+.productImage .pfIcon {
+	margin: 0 0 8px;
+	padding: 0;
+}
+
+.pfPdf {
+	background-image:
+		url("../../../cssSprites/src/SafeB2BStorefrontAssetStore/images/pfsprite.gif")
+		;
+	background-position: left -25px;
+	background-repeat: no-repeat;
+	height: 16px;
+	width: 16px;
+}
+
+.nodisplay {
+	left: -999em;
+	position: absolute;
+}
+
+p.wordBreak {
+	word-break: break-all;
+}
+
+td.description {
+	font-weight: bold;
+	text-transform: capitalize;
+}
+
+table#prodAccessories td.description p {
+	margin-bottom: 8px;
+	word-break: break-all;
+}
+
+.genericPLP td.description p.norm {
+	display: inline-block;
+	width: auto;
+	word-wrap: break-word;
+}
+
+.genericPLP td.description p.norm {
+	font-weight: normal;
+	text-transform: none;
+}
+
+p.norm span.bvListLinks {
+	clear: both;
+	display: block;
+	width: 100%;
+}
+
+p.norm a.writeLink,p.norm a.questLink {
+	float: left;
+	padding-right: 5px;
+}
+
+p.norm span.floatLeft {
+	float: left;
+	margin-right: 5px;
+}
+
+table.genericPLP td.listPrice {
+	text-align: right;
+}
+
+table#sProdList td.listPrice p.price,table.sProdList td.listPrice p.price,table#prodAccessories td.listPrice p.price
+	{
+	float: left;
+	margin-bottom: 4px;
+	width: auto;
+}
+
+span.priceBreak {
+	clear: both;
+	display: block;
+	float: left;
+}
+
+.listPrice .price .priceBreak span.qty {
+	min-width: 30px;
+}
+
+.listPrice .priceFor strong,.listPrice .price .priceBreak span.qty,.listPrice .price .priceBreak strong
+	{
+	float: left;
+}
+
+table#sProdList td.listPrice p.price a,table.sProdList td.listPrice p.price a,table#prodAccessories td.listPrice p.price a,table.genericPLP td.listPrice p.price a
+	{
+	float: left;
+	margin: 0 0 0 2px;
+	padding: 0;
+	text-align: left;
+}
+
+table.genericPLP td.qty {
+	background: none repeat scroll 0 0 #e8f5f8;
+	padding-top: 12px;
+}
+
+table.genericPLP td.qty input {
+	height: auto;
+	padding: 4px 2px;
+	vertical-align: middle;
+	width: 46px;
+}
+
+td.qty input {
+	float: left;
+}
+
+.qtyField input,#priceWrap .highLightBox a {
+	margin: 0 0 4px;
+}
+
+input[type="text"],input[type="password"],input#searchRefineTerm {
+	text-indent: 2px;
+}
+
+#prodSubstitutes a.smBtn1,#prodAccessories a.smBtn1 {
+	margin-right: 0;
+	padding: 3px 8px 5px;
+}
+
+table.genericPLP td.qty a {
+	clear: both;
+}
+
+#prodSubstitutes a.smBtn1 .pfTrolleyWhiteSmall,#prodAccessories a.smBtn1 .pfTrolleyWhiteSmall
+	{
+	display: inline-block;
+	float: none;
+}
+
+.pfTrolleyWhiteSmall {
+	background-image:
+		url("../../../cssSprites/src/SafeB2BStorefrontAssetStore/images/pfsprite.gif")
+		;
+	background-position: left -116px;
+	background-repeat: no-repeat;
+	height: 7px;
+	margin: 1px 3px 0 0;
+	width: 9px;
+}
+
+.tooltipLink {
+	border-bottom: 1px dotted transparent;
+	clear: none;
+}
+
+.pfTooltip {
+	background-image:
+		url("../../../cssSprites/src/SafeB2BStorefrontAssetStore/images/pfsprite.gif")
+		;
+	background-position: left -41px;
+	background-repeat: no-repeat;
+	height: 11px;
+	margin-right: 0;
+	width: 13px;
+}
+
+.row .compareButtBot {
+	margin-bottom: 0;
+	margin-top: 1.2em;
+	overflow: hidden;
+}
+
+a.btn2,input.btn2,a.smBtn2,input.smBtn2 {
+	background-color: #007fac;
+	background-position: 0 -200px;
+}
+
+a.btn1,a.btn2,a.btn3,.btn1Dis,.btn2Dis,.btn3Dis,a.btn1Dis,a.btn2Dis,a.btn3Dis
+	{
+	padding: 1px 10px 4px;
+}
+
+.actionBox input.submit,a.btn1,a.btn2,a.btn3,input.btn1,input.btn2,input.btn3,a.smBtn1,a.smBtn2,a.smBtn3,input.smBtn1,input.smBtn2,input.smBtn3,.btn1Dis,.btn2Dis,.btn3Dis
+	{
+	border: 1px solid #999;
+	border-radius: 4px;
+	cursor: pointer;
+	float: left;
+	font-family: Verdana, Arial, Verdana, Helvetica, sans-serif;
+	font-weight: bold;
+	line-height: 15px;
+	position: relative;
+	text-align: center;
+	text-decoration: none;
+	white-space: nowrap;
+	width: auto;
+}

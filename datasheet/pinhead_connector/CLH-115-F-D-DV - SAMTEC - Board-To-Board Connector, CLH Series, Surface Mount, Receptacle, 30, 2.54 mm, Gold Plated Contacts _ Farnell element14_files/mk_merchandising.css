@@ -1,0 +1,644 @@
+/*------------------------------------------------------------------
+
+v1.0 03/06/14
+
+Merchandising CSS
+
+------------------------------------------------------------------*/
+
+/******** START Catecory Espots Banners *********/
+
+#mk-grad-box {
+	border: solid 1px #b8d7e5;
+	border-bottom:none;
+	width:auto;	
+	height:auto;
+	background-image: linear-gradient(bottom, #cfe7ef 19%, #fff 73%);
+	background-image: -o-linear-gradient(bottom, #cfe7ef 19%, #fff 73%);
+	background-image: -moz-linear-gradient(bottom, #cfe7ef 19%, #fff 73%);
+	background-image: -webkit-linear-gradient(bottom, #cfe7ef 19%, #fff 73%);
+	background-image: -ms-linear-gradient(bottom, #cfe7ef 19%, #fff 73%);
+	background-image: -webkit-gradient(
+	linear,
+	left bottom,
+	left top,
+	color-stop(0.19, #cfe7ef),
+	color-stop(0.73, #fff)
+);
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffff', endColorstr='#cfe7ef'); /* for IE */
+	background: -webkit-gradient(linear, left top, left bottom, from(#ffffff), to(#cfe7ef)); /* for webkit browsers */
+	background: -moz-linear-gradient(top,  #ffffff,  #cfe7ef); /* for firefox 3.6+ */
+}
+
+
+#mk-grad-box h3 {
+	padding:10px 20px 0 20px;
+}
+#mk-grad-box h2 {
+	padding-top:15px;
+	margin-bottom:0;
+	padding-bottom:0;
+	font-weight:bold;
+	font-size:200%;
+	color:#007fac;
+}
+#mk-grad-box p {
+	max-width:100%;
+	width:auto;
+	margin:0 20px 8px 0px;
+}
+
+.mk-category-header { 
+	padding:0px !important;
+	overflow:hidden;
+}
+
+.mk-pullout-box3-text.mk-europe {
+	margin-right:20px;
+	margin-top:18px;
+	margin-bottom:0;
+	margin-left:160px;
+	*display:inline-block;
+
+}
+.mk-featured-logos {
+	width:100%;
+}.mk-category-sprite {
+	width:142px;
+	height:142px;
+	float:left;
+}
+
+
+
+
+
+.mk-category-logo-style {
+	width:120px; margin:0px 6px 6px 6px; text-align:center;}
+.mk-category-logo-style {
+	width: auto;}
+	
+	
+.mk-category-image-aut-1-16 { background:url("/wcsstore/ExtendedSitesCatalogAssetStore/cms/asset/images/europe/common/merchandising/category-node-sprite-aut-1-16.png") no-repeat; background-size:100%;
+ }
+
+.mk-category-image-bat-1-16 { background:url("/wcsstore/ExtendedSitesCatalogAssetStore/cms/asset/images/europe/common/merchandising/category-node-sprite-bat-1-16.png") no-repeat; background-size:100%; }
+
+.mk-category-image-cab-1-16 { background:url("/wcsstore/ExtendedSitesCatalogAssetStore/cms/asset/images/europe/common/merchandising/category-node-sprite-cab-1-16.png") no-repeat; background-size:100%; }
+
+.mk-category-image-che-1-16 { background:url("/wcsstore/ExtendedSitesCatalogAssetStore/cms/asset/images/europe/common/merchandising/category-node-sprite-che-1-16.png") no-repeat; background-size:100%; }
+
+.mk-category-image-cir-1-16 { background:url("/wcsstore/ExtendedSitesCatalogAssetStore/cms/asset/images/europe/common/merchandising/category-node-sprite-cir-1-16.png") no-repeat; background-size:100%; }
+
+.mk-category-image-con-1-16 { background:url("/wcsstore/ExtendedSitesCatalogAssetStore/cms/asset/images/europe/common/merchandising/category-node-sprite-con-1-16.png") no-repeat; background-size:100%; }
+
+.mk-category-image-cry-1-16 { background:url("/wcsstore/ExtendedSitesCatalogAssetStore/cms/asset/images/europe/common/merchandising/category-node-sprite-cry-1-16.png") no-repeat; background-size:100%; }
+
+.mk-category-image-ele-1-16 { background:url("/wcsstore/ExtendedSitesCatalogAssetStore/cms/asset/images/europe/common/merchandising/category-node-sprite-ele-1-16.png") no-repeat; background-size:100%; }
+
+.mk-category-image-enc-1-16 { background:url("/wcsstore/ExtendedSitesCatalogAssetStore/cms/asset/images/europe/common/merchandising/category-node-sprite-enc-1-16.png") no-repeat; background-size:100%; }
+
+.mk-category-image-fan-1-16 { background:url("/wcsstore/ExtendedSitesCatalogAssetStore/cms/asset/images/europe/common/merchandising/category-node-sprite-fan-1-16.png") no-repeat; background-size:100%; }
+
+.mk-category-image-fas-1-16 { background:url("/wcsstore/ExtendedSitesCatalogAssetStore/cms/asset/images/europe/common/merchandising/category-node-sprite-fas-1-16.png") no-repeat; background-size:100%; }
+
+.mk-category-image-off-1-16 { background:url("/wcsstore/ExtendedSitesCatalogAssetStore/cms/asset/images/europe/common/merchandising/category-node-sprite-off-1-16.png") no-repeat; background-size:100%; }
+
+.mk-category-image-opt-1-16 { background:url("/wcsstore/ExtendedSitesCatalogAssetStore/cms/asset/images/europe/common/merchandising/category-node-sprite-opt-1-16.png") no-repeat; background-size:100%; }
+.mk-category-image-opt-17-32 { background:url("/wcsstore/ExtendedSitesCatalogAssetStore/cms/asset/images/europe/common/merchandising/category-node-sprite-opt-17-32.png") no-repeat; background-size:100%; }
+.mk-category-image-opt-33-48 { background:url("/wcsstore/ExtendedSitesCatalogAssetStore/cms/asset/images/europe/common/merchandising/category-node-sprite-opt-33-48.png") no-repeat; background-size:100%; }
+
+.mk-category-image-pas-1-16 { background:url("/wcsstore/ExtendedSitesCatalogAssetStore/cms/asset/images/europe/common/merchandising/category-node-sprite-pas-1-16.png") no-repeat; background-size:100%; }
+
+.mk-category-image-pow-1-16 { background:url("/wcsstore/ExtendedSitesCatalogAssetStore/cms/asset/images/europe/common/merchandising/category-node-sprite-pow-1-16.png") no-repeat; background-size:100%; }
+
+.mk-category-image-sdi-1-16 { background:url("/wcsstore/ExtendedSitesCatalogAssetStore/cms/asset/images/europe/common/merchandising/category-node-sprite-sdi-1-16.png") no-repeat; background-size:100%; }
+.mk-category-image-sdi-17-32 { background:url("/wcsstore/ExtendedSitesCatalogAssetStore/cms/asset/images/europe/common/merchandising/category-node-sprite-sdi-17-32.png") no-repeat; background-size:100%; }
+
+.mk-category-image-sec-1-16 { background:url("/wcsstore/ExtendedSitesCatalogAssetStore/cms/asset/images/europe/common/merchandising/category-node-sprite-sec-1-16.png") no-repeat; background-size:100%; }
+
+.mk-category-image-sen-1-16 { background:url("/wcsstore/ExtendedSitesCatalogAssetStore/cms/asset/images/europe/common/merchandising/category-node-sprite-sen-1-16.png") no-repeat; background-size:100%; }
+
+.mk-category-image-sic-1-16 { background:url("/wcsstore/ExtendedSitesCatalogAssetStore/cms/asset/images/europe/common/merchandising/category-node-sprite-sic-1-16.png") no-repeat; background-size:100%; }
+
+.mk-category-image-smo-1-16 { background:url("/wcsstore/ExtendedSitesCatalogAssetStore/cms/asset/images/europe/common/merchandising/category-node-sprite-smo-1-16.png") no-repeat; background-size:100%; }
+
+.mk-category-image-sta-1-16 { background:url("/wcsstore/ExtendedSitesCatalogAssetStore/cms/asset/images/europe/common/merchandising/category-node-sprite-sta-1-16.png") no-repeat; background-size:100%; }
+
+.mk-category-image-sto-1-16 { background:url("/wcsstore/ExtendedSitesCatalogAssetStore/cms/asset/images/europe/common/merchandising/category-node-sprite-sto-1-16.png") no-repeat; background-size:100%; }
+
+.mk-category-image-swt-1-16 { background:url("/wcsstore/ExtendedSitesCatalogAssetStore/cms/asset/images/europe/common/merchandising/category-node-sprite-swt-1-16.png") no-repeat; background-size:100%; }
+
+.mk-category-image-tes-1-16 { background:url("/wcsstore/ExtendedSitesCatalogAssetStore/cms/asset/images/europe/common/merchandising/category-node-sprite-tes-1-16.png") no-repeat; background-size:100%; }
+
+.mk-category-image-too-1-16 { background:url("/wcsstore/ExtendedSitesCatalogAssetStore/cms/asset/images/europe/common/merchandising/category-node-sprite-too-1-16.png") no-repeat; background-size:100%; }
+
+.mk-category-image-tra-1-16 { background:url("/wcsstore/ExtendedSitesCatalogAssetStore/cms/asset/images/europe/common/merchandising/category-node-sprite-tra-1-16.png") no-repeat; background-size:100%; }
+
+
+
+
+
+.mk-category-image-1-16 {
+	background:url("/wcsstore/ExtendedSitesCatalogAssetStore/cms/asset/images/europe/common/merchandising/category-node-sprite-1-16.png") no-repeat; background-size:100%;
+}
+.mk-category-image-17-32 {
+	background:url("/wcsstore/ExtendedSitesCatalogAssetStore/cms/asset/images/europe/common/merchandising/category-node-sprite-17-32.png") no-repeat; background-size:100%;
+}
+.mk-category-image-33-48 {
+	background:url("/wcsstore/ExtendedSitesCatalogAssetStore/cms/asset/images/europe/common/merchandising/category-node-sprite-33-48.png") no-repeat; background-size:100%;
+}
+.mk-category-image-49-64 {
+	background:url("/wcsstore/ExtendedSitesCatalogAssetStore/cms/asset/images/europe/common/merchandising/category-node-sprite-49-64.png") no-repeat; background-size:100%;
+}
+.mk-category-image-65-80 {
+	background:url("/wcsstore/ExtendedSitesCatalogAssetStore/cms/asset/images/europe/common/merchandising/category-node-sprite-65-80.png") no-repeat; background-size:100%;
+}
+.mk-category-image-81-96 {
+	background:url("/wcsstore/ExtendedSitesCatalogAssetStore/cms/asset/images/europe/common/merchandising/category-node-sprite-81-96.png") no-repeat; background-size:100%;
+}
+.mk-category-image-97-112 {
+	background:url("/wcsstore/ExtendedSitesCatalogAssetStore/cms/asset/images/europe/common/merchandising/category-node-sprite-97-112.png") no-repeat; background-size:100%;
+}
+.mk-category-image-113-128 {
+	background:url("/wcsstore/ExtendedSitesCatalogAssetStore/cms/asset/images/europe/common/merchandising/category-node-sprite-113-128.png") no-repeat; background-size:100%;
+}
+.mk-category-image-129-144 {
+	background:url("/wcsstore/ExtendedSitesCatalogAssetStore/cms/asset/images/europe/common/merchandising/category-node-sprite-129-144.png") no-repeat; background-size:100%;
+}
+.mk-category-image-145-160 {
+	background:url("/wcsstore/ExtendedSitesCatalogAssetStore/cms/asset/images/europe/common/merchandising/category-node-sprite-145-160.png") no-repeat; background-size:100%;
+}
+.mk-category-image-161-176 {
+	background:url("/wcsstore/ExtendedSitesCatalogAssetStore/cms/asset/images/europe/common/merchandising/category-node-sprite-161-176.png") no-repeat; background-size:100%;
+}
+.mk-category-position1 {
+	background-position:0px 0px;
+}
+.mk-category-position2 {
+	background-position: 0px -144px;
+}
+.mk-category-position3 {
+	background-position: 0px -290px;
+}
+.mk-category-position4 {
+	background-position: 0px -430px;
+}
+.mk-category-position5 {
+	background-position: 0px -575px;
+}
+.mk-category-position6 {
+	background-position: 0px -719px;
+}
+.mk-category-position7 {
+	background-position: 0px -863px;
+}
+.mk-category-position8 {
+	background-position: 0px -1000px;
+}
+.mk-category-position9 {
+	background-position: 0px -1150px;
+}
+.mk-category-position10 {
+	background-position: 0px -1295px;
+}
+.mk-category-position11 {
+	background-position: 0px -1440px;
+}
+.mk-category-position12 {
+	background-position: 0px -1585px;
+}
+.mk-category-position13 {
+	background-position: 0px -1725px;
+}
+.mk-category-position14 {
+	background-position: 0px -1870px;
+}
+.mk-category-position15 {
+	background-position: 0px -2015px;
+}
+.mk-category-position16 {
+	background-position: 0px -2160px;
+}
+.mk-mask {
+	margin:-26px -1px 0 -1px;
+	*margin:-9px -1px 0 -1px;
+	width:auto;
+	height:75px;
+	background:url(/wcsstore/ExtendedSitesCatalogAssetStore/cms/asset/images/europe/common/merchandising/cat-arrow-mask.png) no-repeat; 
+background-position:center;
+	}
+/*
+	.mk-content {
+		height:393px;
+		width:568px;
+	}*/
+/******** END Catecory Espots Banners *********/
+	
+/******** START Bestsellers Banners *********/
+
+.mk-bestsellers-box {
+	width:182px;
+	/*width:100%;*/
+	height:auto;
+}
+a.mk-bestsellers-box-row  {
+	margin-top: 1px;
+	padding:1px 0 2px 0;
+	border-bottom:#e3e3e3 solid 1px;
+	width:100%;
+	display: inline-block;
+	min-width:198px;
+	vertical-align:middle;
+	}
+a:hover.mk-bestsellers-box-row  {
+	margin-top:1px;
+	background:#fbf9f9;
+}
+.mk-bestsellers-text-box {
+	width:auto;
+	max-with:150px;
+	display:table-cell;
+	height:28px;
+	vertical-align:middle;
+	overflow:hidden;
+}
+/* ie7 fix text alignment*/
+/*.mk-bestsellers-text-box {
+	width:auto;
+}*/
+#mk-bestsellers-box-header {
+	width:100%;
+	border-top:#007fac solid 1px;
+	background:#f0f1f2;
+	padding:8px;
+	height:auto;
+	float:left;
+}
+#mk-bestsellers-box-header h2  {
+	font-size: 12px;
+	font-weight: bold;
+	padding:0;
+	background:none;
+	margin:0;
+}
+.mk-bestsellers-title{
+	width:100%;
+	float:left;
+	}
+.mk-bestsellers-view-all {
+	padding-top:5px;
+	float:right;
+	width:auto;
+}
+.mk-bestsellers-box-image {
+	float:left;
+	width: 32px;
+	height: 32px;
+	margin: auto 5px auto 5px;
+}
+.mk-bestsellers-Semiconductors { background-image:url(/wcsstore/ExtendedSitesCatalogAssetStore/cms/asset/images/europe/common/merchandising/category-semiconductor-tools-sprite.png);}
+.mk-bestsellers-switches { background-image:url(/wcsstore/ExtendedSitesCatalogAssetStore/cms/asset/images/europe/common/merchandising/category-switches-relays-sprite.png);}
+.mk-bestsellers-sensors { background-image:url(/wcsstore/ExtendedSitesCatalogAssetStore/cms/asset/images/europe/common/merchandising/category-sensors-transducers-sprite.png);}
+.mk-bestsellers-power-line-protection{ background-image:url(/wcsstore/ExtendedSitesCatalogAssetStore/cms/asset/images/europe/common/merchandising/category-power-line-protection-sprite.png);}
+.mk-bestsellers-opto{ background-image:url(/wcsstore/ExtendedSitesCatalogAssetStore/cms/asset/images/europe/common/merchandising/category-displays-sprite.png);}
+.mk-bestsellers-passive{ background-image:url(/wcsstore/ExtendedSitesCatalogAssetStore/cms/asset/images/europe/common/merchandising/category-passives-sprite.png);}
+.mk-bestsellers-fans{ background-image:url(/wcsstore/ExtendedSitesCatalogAssetStore/cms/asset/images/europe/common/merchandising/category-fans-heat-sinks-sprite.png);}
+.mk-bestsellers-enclosures{ background-image:url(/wcsstore/ExtendedSitesCatalogAssetStore/cms/asset/images/europe/common/merchandising/category-enclosures-sprite.png);}
+.mk-bestsellers-discretes{ background-image:url(/wcsstore/ExtendedSitesCatalogAssetStore/cms/asset/images/europe/common/merchandising/category-semiconductors-discretes-sprite.png);}
+.mk-bestsellers-crystals{ background-image:url(/wcsstore/ExtendedSitesCatalogAssetStore/cms/asset/images/europe/common/merchandising/category-crystal-oscillators-sprite.png);}
+.mk-bestsellers-transformers{ background-image:url(/wcsstore/ExtendedSitesCatalogAssetStore/cms/asset/images/europe/common/merchandising/category-transformers-sprite.png);}
+.mk-bestsellers-batteries{ background-image:url(/wcsstore/ExtendedSitesCatalogAssetStore/cms/asset/images/europe/common/merchandising/category-batteries-sprite.png);}
+.mk-bestsellers-circuit { background-image:url(/wcsstore/ExtendedSitesCatalogAssetStore/cms/asset/images/europe/common/merchandising/category-circuit-breakers-sprite.png);}
+.mk-bestsellers-cable-wire { background-image:url(/wcsstore/ExtendedSitesCatalogAssetStore/cms/asset/images/europe/common/merchandising/category-cable-wire-sprite.png);}
+.mk-bestsellers-automation { background-image:url(/wcsstore/ExtendedSitesCatalogAssetStore/cms/asset/images/europe/common/merchandising/category-automated-process-sprite.png);}
+.mk-bestsellers-connectors { background-image:url(/wcsstore/ExtendedSitesCatalogAssetStore/cms/asset/images/europe/common/merchandising/category-connectors-sprite.png);}
+.mk-bestsellers-tools-prod-supplies { background-image:url(/wcsstore/ExtendedSitesCatalogAssetStore/cms/asset/images/europe/common/merchandising/category-tools-supplies-sprite.png);}
+/*.mk-bestsellers-displays { background-image:url(/wcsstore/ExtendedSitesCatalogAssetStore/cms/asset/images/europe/common/merchandising/category-displays-sprite.png);}*/
+.mk-bestsellers-t-and-m { background-image:url(/wcsstore/ExtendedSitesCatalogAssetStore/cms/asset/images/europe/common/merchandising/category-test-measurement-sprite.png); }
+ 
+.mk-bestsellers-position1 {background-position:0px 0px; }
+.mk-bestsellers-position2 {background-position:0px -32px; }
+.mk-bestsellers-position3 {background-position:0px -64px; }
+.mk-bestsellers-position4 {background-position:0px -96px; }
+.mk-bestsellers-position5 {background-position:0px -128px; }
+.mk-bestsellers-position6 {background-position:0px -160px; }
+.mk-bestsellers-position7 {background-position:0px -192px; }
+.mk-bestsellers-position8 {background-position:0px -224px; }
+.mk-bestsellers-position9 {background-position:0px -256px; }
+.mk-bestsellers-position10 {background-position:0px -288px; }
+.mk-bestsellers-box-text {
+	width:80%;
+	float:left;
+	height:auto;
+}
+
+/******** END Bestsellers Banners *********/
+/******** START Category Banners *********/
+
+.mk-category-box {
+	width:198px;
+	/*width:100%;*/
+	height:auto;
+}
+.mk-category-box-row {
+	padding:0px 0 0px 25%;
+	border-bottom:#e3e3e3 solid 1px;
+	height:auto;
+	width:73%;
+	float:left;
+
+}
+
+.mk-category-box-row a {
+	margin: auto 0;
+	display: table-cell;
+    height: 40px;
+    text-align: left;
+    vertical-align: middle;
+	color: #528EC6;
+	text-decoration: none;
+	font-size:100%;
+}
+
+#mk-category-box-header{
+	width:100%;
+	border-top:#007fac solid 1px;
+	background:#f0f1f2;
+	padding:8px;
+	height:auto;
+	float:left;
+}
+
+#mk-category-box-header h2  {
+	font-size: 12px;
+	font-weight: bold;
+	padding:0;
+	background:none;
+	margin:auto 0 auto 0;
+	width:100%;
+	float:left;
+}
+
+.mk-category-automation { background:url("/wcsstore/ExtendedSitesCatalogAssetStore/cms/asset/images/europe/common/merchandising/category-automated-process-sprite.png") no-repeat; }
+.mk-category-batteries { background:url("/wcsstore/ExtendedSitesCatalogAssetStore/cms/asset/images/europe/common/merchandising/category-batteries-sprite.png") no-repeat; }
+.mk-category-cable-wires { background:url("/wcsstore/ExtendedSitesCatalogAssetStore/cms/asset/images/europe/common/merchandising/category-cable-wire-sprite.png") no-repeat; }
+.mk-category-circuit { background:url("/wcsstore/ExtendedSitesCatalogAssetStore/cms/asset/images/europe/common/merchandising/category-circuit-breakers-sprite.png") no-repeat; }
+.mk-category-connectors { background:url("/wcsstore/ExtendedSitesCatalogAssetStore/cms/asset/images/europe/common/merchandising/category-connectors-sprite.png") no-repeat; }
+.mk-category-crystals { background:url("/wcsstore/ExtendedSitesCatalogAssetStore/cms/asset/images/europe/common/merchandising/category-crystal-oscillators-sprite.png") no-repeat; }
+.mk-category-discretes { background:url("/wcsstore/ExtendedSitesCatalogAssetStore/cms/asset/images/europe/common/merchandising/category-semiconductors-discretes-sprite.png") no-repeat; }
+.mk-category-enclosures { background:url("/wcsstore/ExtendedSitesCatalogAssetStore/cms/asset/images/europe/common/merchandising/category-enclosures-sprite.png") no-repeat; }
+.mk-category-fans { background:url("/wcsstore/ExtendedSitesCatalogAssetStore/cms/asset/images/europe/common/merchandising/category-fans-heat-sinks-sprite.png") no-repeat; }
+.mk-category-optos { background:url("/wcsstore/ExtendedSitesCatalogAssetStore/cms/asset/images/europe/common/merchandising/category-displays-sprite.png") no-repeat; }
+.mk-category-passives{ background:url("/wcsstore/ExtendedSitesCatalogAssetStore/cms/asset/images/europe/common/merchandising/category-passives-sprite.png") no-repeat; }
+.mk-category-power-line-protection{ background:url("/wcsstore/ExtendedSitesCatalogAssetStore/cms/asset/images/europe/common/merchandising/category-power-line-protection-sprite.png") no-repeat; }
+.mk-category-semi-tools{ background:url("/wcsstore/ExtendedSitesCatalogAssetStore/cms/asset/images/europe/common/merchandising/category-semiconductor-tools-sprite.png") no-repeat; }
+.mk-category-sensors { background:url("/wcsstore/ExtendedSitesCatalogAssetStore/cms/asset/images/europe/common/merchandising/category-sensors-transducers-sprite.png") no-repeat; }
+.mk-category-switches { background:url("/wcsstore/ExtendedSitesCatalogAssetStore/cms/asset/images/europe/common/merchandising/category-switches-relays-sprite.png") no-repeat; }
+.mk-category-test-measurement { background:url("/wcsstore/ExtendedSitesCatalogAssetStore/cms/asset/images/europe/common/merchandising/category-test-measurement-sprite.png") no-repeat; }
+.mk-category-tools-prod-supplies { background:url("/wcsstore/ExtendedSitesCatalogAssetStore/cms/asset/images/europe/common/merchandising/category-tools-supplies-sprite.png") no-repeat; }
+.mk-category-transformers { background:url("/wcsstore/ExtendedSitesCatalogAssetStore/cms/asset/images/europe/common/merchandising/category-transformers-sprite.png") no-repeat; }
+.mk-category-semi-ics { background:url("/wcsstore/ExtendedSitesCatalogAssetStore/cms/asset/images/europe/common/merchandising/category-semiconductors-ics-sprite.png") no-repeat; }
+.mk-category-banner-position01 {background-position:0px 0px;}
+.mk-category-banner-position02 {background-position:0px -40px;}
+.mk-category-banner-position03 {background-position:0px -80px;}
+.mk-category-banner-position04 {background-position:0px -120px;}
+.mk-category-banner-position05 {background-position:0px -160px;}
+.mk-category-banner-position06 {background-position:0px -200px;}
+.mk-category-banner-position07 {background-position:0px -240px;}
+.mk-category-banner-position08 {background-position:0px -280px;}
+.mk-category-banner-position09 {background-position:0px -320px;}
+.mk-category-box-row a:hover {
+	background:#dddddd;
+	display:table-cell;
+	width:100%;
+}
+/******** END Category Banners *********/
+/*--------------------------------------------------------------
+  Styles specific to <embed>s stored in <region>/common/banners
+ ---------------------------------------------------------------*/
+
+/* Products Range <Embed>s */
+#mk-list-sprite-product-range-img li {
+	background-image: url(/wcsstore/ExtendedSitesCatalogAssetStore/cms/asset/images/common/products/product-range-thumbs.jpg);
+}
+
+
+/* Promo Banner spcific */
+.mk-promo-special-offers {background-image:url(/wcsstore/ExtendedSitesCatalogAssetStore/cms/asset/images/common/multiuse_banners/promo-special-offers.jpg);}
+.mk-promo-register-today {background-image:url(/wcsstore/ExtendedSitesCatalogAssetStore/cms/asset/images/common/multiuse_banners/promo-register-today.jpg);}
+.mk-promo-calibration {background-image:url(/wcsstore/ExtendedSitesCatalogAssetStore/cms/asset/images/common/multiuse_banners/promo-calibration.jpg);}
+.mk-promo-valuebrands {background-image:url(/wcsstore/ExtendedSitesCatalogAssetStore/cms/asset/images/common/multiuse_banners/promo-valuebrands.jpg);}
+.mk-promo-wireless {background-image:url(/wcsstore/ExtendedSitesCatalogAssetStore/cms/asset/images/common/multiuse_banners/promo-wireless.jpg);}
+.mk-promo-mobile {background-image:url(/wcsstore/ExtendedSitesCatalogAssetStore/cms/asset/images/common/multiuse_banners/promo-mobile.jpg);}
+.mk-promo-newsletters {background-image:url(/wcsstore/ExtendedSitesCatalogAssetStore/cms/asset/images/common/multiuse_banners/promo-newsletters.jpg);}
+.mk-promo-webinars {background-image:url(/wcsstore/ExtendedSitesCatalogAssetStore/cms/asset/images/common/multiuse_banners/promo-webinars.jpg);}
+.mk-promo-industrialautomation {background-image:url(/wcsstore/ExtendedSitesCatalogAssetStore/cms/asset/images/common/multiuse_banners/promo-industrialautomation.jpg);}
+.mk-promo-valueaddedservices {background-image:url(/wcsstore/ExtendedSitesCatalogAssetStore/cms/asset/images/common/multiuse_banners/promo-valueaddedservices.jpg);}
+.mk-promo-new-product {background-image:url(/wcsstore/ExtendedSitesCatalogAssetStore/cms/asset/images/common/multiuse_banners/promo-new-products.jpg);}
+.mk-promo-tech-support {background-image:url(/wcsstore/ExtendedSitesCatalogAssetStore/cms/asset/images/common/multiuse_banners/promo-tech-support.jpg);}
+.mk-promo-applications {background-image:url(/wcsstore/ExtendedSitesCatalogAssetStore/cms/asset/images/common/multiuse_banners/promo-applications-us.jpg);}
+.mk-promo-cem {background-image:url(/wcsstore/ExtendedSitesCatalogAssetStore/cms/asset/images/common/multiuse_banners/promo-CEM.jpg);}
+.mk-promo-purchase-procurement-us {background-image:url(/wcsstore/ExtendedSitesCatalogAssetStore/cms/asset/images/common/multiuse_banners/promo-purchasing-procurement.jpg);}
+.mk-promo-engineering-design {background-image:url(/wcsstore/ExtendedSitesCatalogAssetStore/cms/asset/images/common/multiuse_banners/promo-electronic-design-engineer.jpg);}
+.mk-promo-promo-cadsoft-us {background-image:url(/wcsstore/ExtendedSitesCatalogAssetStore/cms/asset/images/common/multiuse_banners/promo-CADSOFT.jpg);}
+.mk-promo-bestsellers {background-image:url(/wcsstore/ExtendedSitesCatalogAssetStore/cms/asset/images/common/multiuse_banners/best-sellers-multi-1.jpg);}
+.mk-promo-bestsellers-alt {background-image:url(/wcsstore/ExtendedSitesCatalogAssetStore/cms/asset/images/common/multiuse_banners/best-sellers-multi-2.jpg);padding-bottom:120px;background-position:bottom right;}
+
+.mk-promo-todays-bargains-tl {background-image:url(/wcsstore/ExtendedSitesCatalogAssetStore/cms/asset/images/common/multiuse_banners/promo-todays-bargains-tl.jpg);}
+.mk-promo-online-catalogs-tl {background-image:url(/wcsstore/ExtendedSitesCatalogAssetStore/cms/asset/images/common/multiuse_banners/promo-online-catalogs-tl.jpg);}
+.mk-promo-buying-tools-tl {background-image:url(/wcsstore/ExtendedSitesCatalogAssetStore/cms/asset/images/common/multiuse_banners/promo-buying-tools-tl.jpg);}
+.mk-promo-devkit-hq-tl {background-image:url(/wcsstore/ExtendedSitesCatalogAssetStore/cms/asset/images/common/multiuse_banners/promo-devkit-hq-tl.jpg);}
+
+.mk-promo-weekly-sale-198 {background-image:url(/wcsstore/ExtendedSitesCatalogAssetStore/cms/asset/images/americas/common/merchandising/espots/weekly_sale/weekly-sale-198.jpg);}
+.mk-promo-rf-cable-assemblies {background-image:url(/wcsstore/ExtendedSitesCatalogAssetStore/cms/asset/images/common/rf-cable-bg.png);}
+
+/* Live chat special */
+#mk-livechat-cta {background:#F9FDFE url(/wcsstore/ExtendedSitesCatalogAssetStore/cms/asset/images/common/live-chat-cta.jpg) bottom left no-repeat; padding-bottom:60px;}
+#mk-panel-meter-livechat-cta {background:#F9FDFE url(/wcsstore/ExtendedSitesCatalogAssetStore/cms/asset/images/common/Panel-Meters-Live-Chat-cta.jpg) bottom left no-repeat; padding-bottom:110px;}
+
+/* Call to Action - Buying Tools Catalogue */
+#mk-equotes-cta{background:#F9FDFE url(/wcsstore/ExtendedSitesCatalogAssetStore/cms/asset/images/common/buying-tools-eQuotes-small-cta.jpg) bottom left no-repeat; padding-bottom:170px;}
+.mk-equotes-fixed198-cta { background:#f9f9f9 url(/wcsstore/ExtendedSitesCatalogAssetStore/cms/asset/images/common/multiuse_banners/equotes-fixed-198-bg.jpg) bottom center no-repeat; padding-bottom:120px;}
+.mk-ibuy-fixed198-cta { background:#f9f9f9 url(/wcsstore/ExtendedSitesCatalogAssetStore/cms/asset/images/common/multiuse_banners/ibuy-fixed-198-bg.jpg) bottom center no-repeat; padding-bottom:120px;}
+.mk-technical-support-fixed198-cta, 
+.mk-tradecounter-technical-support-fixed198-cta { background:#f9f9f9 url(/wcsstore/ExtendedSitesCatalogAssetStore/cms/asset/images/common/multiuse_banners/technical-support-fixed-198-bg.jpg) bottom center no-repeat; padding-bottom:100px;}
+.mk-technical-support-small-fixed198-cta { background:#f9f9f9 url(/wcsstore/ExtendedSitesCatalogAssetStore/cms/asset/images/common/multiuse_banners/technical-support-small-fixed-198-bg.jpg) bottom center no-repeat !important; }
+.mk-free-delivery-fixed198-cta { background:#f9f9f9 url(/wcsstore/ExtendedSitesCatalogAssetStore/cms/asset/images/common/multiuse_banners/free-delivery-fixed-198-bg.jpg) bottom left no-repeat;}
+.mk-sohc-fixed198-cta {background:#f9f9f9 url(/wcsstore/ExtendedSitesCatalogAssetStore/cms/asset/images/common/multiuse_banners/sohc.jpg) top right no-repeat;}
+.mk-out-of-stock-fixed198-cta { background:#f9f9f9 url(/wcsstore/ExtendedSitesCatalogAssetStore/cms/asset/images/common/multiuse_banners/out-of-stock-fixed-198-bg.jpg) bottom left no-repeat;
+padding-right:50px !important;}
+.mk-large-order-fixed198-cta { background:#f9f9f9 url(/wcsstore/ExtendedSitesCatalogAssetStore/cms/asset/images/common/multiuse_banners/large-order-fixed-198-bg.jpg) bottom left no-repeat !important;}
+#mk-ibuy-cta{background:#F9FDFE url(/wcsstore/ExtendedSitesCatalogAssetStore/cms/asset/images/common/buying-tools-ibuy-cta.jpg) bottom left no-repeat; padding-bottom:170px;}
+#mk-eInvoicing-cta{background:#F9FDFE url(/wcsstore/ExtendedSitesCatalogAssetStore/cms/asset/images/common/multiuse_banners/buying-tools-einvoicing-cta.jpg) bottom left no-repeat; padding-bottom:170px;}
+/*Built for Catalogue page,and it is only for AU and NZ webpage*/
+#mk-eInvoicing-cta-aunz{background:#F9FDFE url(/wcsstore/ExtendedSitesCatalogAssetStore/cms/asset/images/common/multiuse_banners/buying-tools-cta-catalogue-online-laptop.gif) bottom left no-repeat; padding-bottom:170px;}
+#mk-mobile-app-cta {background:#F9FDFE url(/wcsstore/ExtendedSitesCatalogAssetStore/cms/asset/images/common/buying-tools-mobile-app-cta.jpg) bottom left no-repeat;}
+#mk-online-catalog-cta {background:url(/wcsstore/ExtendedSitesCatalogAssetStore/cms/asset/images/common/buying-tools-catalouge-cta.jpg) no-repeat bottom left;}
+#mk-quotes-freephone-cta {background:#F9FDFE url(/wcsstore/ExtendedSitesCatalogAssetStore/cms/asset/images/common/buying-tools/buying-tools-cta-quotes-freephone.jpg) bottom right no-repeat;}
+#mk-experts-cta{background:#F9FDFE url(/wcsstore/ExtendedSitesCatalogAssetStore/cms/asset/images/common/multiuse_banners/experts-cta.jpg) bottom left no-repeat; padding-bottom:85px;}
+
+/* Call to Action - Tradecounter */
+.mk-tradecounter-call-now-fixed198-cta { background:#f9f9f9 url(/wcsstore/ExtendedSitesCatalogAssetStore/cms/asset/images/europe/en_UK/campaign/tradecounter-contact-us-fixed-198-bg.gif) bottom center no-repeat; padding-bottom:100px;}
+.mk-tradecounter-technical-support-fixed198-cta {padding-bottom:120px;}
+.mk-tradecounter-free-coffee-fixed198-cta { background:#f9f9f9 url(/wcsstore/ExtendedSitesCatalogAssetStore/cms/asset/images/europe/en_UK/campaign/tradecounter-free-coffee-fixed-198-bg.jpg) top left no-repeat; padding-top:110px;}
+.mk-tradecounter-quote-fixed198-cta {
+	background:#f9f9f9 url(/wcsstore/ExtendedSitesCatalogAssetStore/cms/asset/images/europe/en_UK/campaign/tradecounter-quote-fixed-198-bg.jpg) bottom center no-repeat; padding-bottom:30px;
+}
+.mk-tradecounter-fixed198-cta { background:#f9f9f9 url(/wcsstore/ExtendedSitesCatalogAssetStore/cms/asset/images/common/multiuse_banners/tradecounter-fixed198-cta.jpg) bottom left no-repeat; padding-bottom:160px;}
+
+/* Multiuse Call to Actions */
+.mk-the-knode-cta { background:#ffffff url(/wcsstore/ExtendedSitesCatalogAssetStore/cms/asset/images/common/multiuse_banners/the-knode-cta.jpg) bottom left no-repeat; padding-bottom:76px;}
+.mk-the-knode-fixed198-cta { background:#f9f9f9 url(/wcsstore/ExtendedSitesCatalogAssetStore/cms/asset/images/common/multiuse_banners/the-knode-fixed198-cta.jpg) bottom left no-repeat; padding-bottom:76px;}
+
+.mk-e14-experts-cta { background:#f9f9f9 url(/wcsstore/ExtendedSitesCatalogAssetStore/cms/asset/images/common/multiuse_banners/e14-experts-cta.jpg) bottom left no-repeat; padding-bottom:100px;}
+.mk-techcast-cta { background:#ffffff url(/wcsstore/ExtendedSitesCatalogAssetStore/cms/asset/images/common/multiuse_banners/techcast-cta.jpg) bottom left no-repeat; padding-bottom:100px;}
+.mk-why-choose-element14-cta { background:#f9fdfe url(/wcsstore/ExtendedSitesCatalogAssetStore/cms/asset/images/common/multiuse_banners/why-choose-element14-cta-198.jpg) top right no-repeat; }
+.mk-why-choose-element14-cta-2 { background:#f9fdfe url(/wcsstore/ExtendedSitesCatalogAssetStore/cms/asset/images/common/multiuse_banners/why-choose-element14-cta-B.jpg) 0 -24px no-repeat; }
+.mk-right-fixed .mk-why-choose-element14-cta { /* Column 198 Specific */
+	background:#F9F9F9 url(/wcsstore/ExtendedSitesCatalogAssetStore/cms/asset/images/common/multiuse_banners/why-choose-element14-cta-198.jpg) bottom right no-repeat;padding-bottom:10px; padding-right:5px;
+}
+.mk-accelerator-cta {
+	background:#F9F9F9 url(/wcsstore/ExtendedSitesCatalogAssetStore/cms/asset/images/common/multiuse_banners/mk-accelerator-cta-198.jpg) top right no-repeat; padding-top:110px; padding-bottom:12px; padding-right:0px;
+}
+.mk-design-cycle-cta { background:#f9fdfe url(/wcsstore/ExtendedSitesCatalogAssetStore/cms/asset/images/common/multiuse_banners/design-cycle-cta.jpg) center right no-repeat; padding-right:45px; }
+.mk-chip-features-cta { background:#ffffff url(/wcsstore/ExtendedSitesCatalogAssetStore/cms/asset/images/common/multiuse_banners/arm-chip-features-cta.jpg) bottom left no-repeat; padding-bottom:130px; }
+.mk-special-offers-cta {background:#f9f9f9; padding-bottom:20px;}
+.mk-promo-arm-related-products { background:#f9f9f9 url(/wcsstore/ExtendedSitesCatalogAssetStore/cms/asset/images/common/multiuse_banners/promo-arm-related-products.jpg) top right no-repeat; }
+.mk-promo-stm32-f4 { background:#f9f9f9 url(/wcsstore/ExtendedSitesCatalogAssetStore/cms/asset/images/common/multiuse_banners/promo-stm32-f4.jpg) top right no-repeat; }
+.mk-promo-element14-arm-community { background:#f9f9f9 url(/wcsstore/ExtendedSitesCatalogAssetStore/cms/asset/images/common/multiuse_banners/promo-element14-community.jpg) bottom right no-repeat;  padding-bottom:70px; }
+.mk-promo-micrium-rtos { background:#f9f9f9 url(/wcsstore/ExtendedSitesCatalogAssetStore/cms/asset/images/common/multiuse_banners/promo-micrium-rtos.jpg) bottom right no-repeat;   padding-bottom:40px; }
+.mk-applications-fixed198-cta { background:#f9f9f9 url(/wcsstore/ExtendedSitesCatalogAssetStore/cms/asset/images/common/multiuse_banners/applications-fixed198-cta.jpg) bottom left no-repeat;}
+.mk-calibration-asset-tracking-cta { background:#F9FDFE url(/wcsstore/ExtendedSitesCatalogAssetStore/cms/asset/images/common/multiuse_banners/calibration-asset-tracking-cta.jpg) bottom left no-repeat; }
+
+.mk-looking-for-a-solution-cta { background:#F9FDFE url(/wcsstore/ExtendedSitesCatalogAssetStore/cms/asset/images/common/multiuse_banners/looking-for-a-solution-cta.jpg) bottom left no-repeat; }
+.mk-speechbubble-primary { background-color:#007FAC; border:1px solid #005B83; border-bottom:0px; padding:5px 12px 8px 12px; color:#ffffff; font-size:2em; line-height:1.2em; }
+.mk-speachbubble-primary-pointer { height:18px; background:url(/wcsstore/ExtendedSitesCatalogAssetStore/cms/asset/images/common/multiuse_banners/speechbubble-primary-pointer.gif) }
+
+.mk-featured-products-table { border-top:0px !important; }
+.mk-technical-journals-backissues-cta{ padding-bottom:24px; background-color:#F9FDFE; }
+
+
+/* promo banners 198 */
+#mk-198-banner-bg1 .mk-promo-198-top {background: url(/wcsstore/ExtendedSitesCatalogAssetStore/cms/asset/images/common/198-pcb-fab-assembly.jpg) no-repeat bottom left transparent;}
+#mk-198-banner-bg2 .mk-promo-198-top {background: url(/wcsstore/ExtendedSitesCatalogAssetStore/cms/asset/images/common/198-devl-kits.jpg) no-repeat bottom left transparent;}
+.mk-solcial-icon-holder { background-color:#FF0000;}
+
+/* mod1 image common to Services and Products (Europe) */
+.mk-services-img{background-image:url(/wcsstore/ExtendedSitesCatalogAssetStore/cms/asset/images/common/services/services-page-thumbs.jpg);
+}
+
+/* Multi use Header Graphics */
+.mk-broken-page-header-img { background:url(/wcsstore/ExtendedSitesCatalogAssetStore/cms/asset/images/common/fluid786-header1-broken-page.jpg) no-repeat bottom right;}
+
+/* Merch H2 override */
+.mk-node-box1 { margin-bottom:20px;	}
+/*.merchZone h2 { clear: none;}*/   
+.merchZone .horizontal h2 { border-bottom: none;}
+
+/* Applications banners */
+.mk-merch-fluid-header { overflow:hidden;padding:10px; }
+
+.mk-merch-keyline { border:1px solid #b4b4b4; }
+
+.mk-merch-applications-right .mk-merch-applications-energy {
+	background-position: top right;
+}
+
+.mk-merch-fluid-header-content { }
+
+.mk-merch-applications-energy {
+	background: url("/wcsstore/ExtendedSitesCatalogAssetStore/cms/asset/images/common/merchandising/banners/applications_banners/energy-col100-left.jpg") no-repeat;
+}
+
+/******** supplier banners start *********/
+a.mkBannerDefaults{background-position:bottom;border:1px solid #ccc;float:left;color:#333;font-family:Verdana, Helvetica, sans-serif;font-size:.7em;display:block;text-decoration:none!important;margin:0 0 10px 0;padding:10px 9px 10px;float:none;overflow:hidden;}
+.mktitleSelect{text-decoration:none!important;color:#007fac;font-family:Arial, Helvetica, sans-serif;font-size:13px;font-weight:700;line-height:normal;padding-bottom:0;margin-top:0;margin-bottom:12px;}
+a.mktitleSelect:hover{text-decoration:none!important;}
+.mkbasecopy{font-family:Arial, Helvetica, sans-serif;font-size:1.3em;clear:both;font-weight:400;line-height:1em;color:#333;display:inline-block;margin-bottom:0;width:55%;}
+.mkDimeRightBanner{width:166px;}
+.mkDimeRightBanner .mk-secondary-btn{float:right;}
+.mkDimeRightBanner .mkskucontainer{width:100%;text-align:center;overflow:hidden;margin:0 auto;}
+.mkDimeRightBanner .mkBannerImage{width:50%;}
+.mkDimeVertical .mkLogo{float:left;display:block;padding-left:36px;padding-top:24px;}
+.mkFontxLarge{font-size:15px;line-height:1.4em;}
+.mkFontLarge{font-size:13px;line-height:1.3em;}
+.mkFontSmall{font-size:12px;line-height:1.2em;}
+.mkFontxsmall{font-size:11px;line-height:1.1em;}
+.mkSupBg1{display:block;background-image:url(/wcsstore/ExtendedSitesCatalogAssetStore/cms/asset/images/europe/common/merchandising/supplier_banner/supplierBnBg1.png);background-position:bottom;background-repeat:horizontal;}
+.mkSupBg2{display:block;background-image:url(/wcsstore/ExtendedSitesCatalogAssetStore/cms/asset/images/europe/common/merchandising/supplier_banner/supplierBnBg2.png);background-position:bottom;background-repeat:horizontal;}
+.mkSupBg3{display:block;background-image:url(/wcsstore/ExtendedSitesCatalogAssetStore/cms/asset/images/europe/common/merchandising/supplier_banner/supplierBnBg3.png);background-position:bottom;background-repeat:horizontal;}
+.mkSupBg4{display:block;background-image:url(/wcsstore/ExtendedSitesCatalogAssetStore/cms/asset/images/europe/common/merchandising/supplier_banner/supplierBnBg4.png);background-position:bottom;background-repeat:horizontal;}
+.mkSupBg5{display:block;background-image:url(/wcsstore/ExtendedSitesCatalogAssetStore/cms/asset/images/europe/common/merchandising/supplier_banner/supplierBnBg5.png);background-position:bottom;background-repeat:horizontal;}
+.mkSkuimg{margin-top:0;}
+.mkLogo{margin-top:-2px;}
+.mkBannerDefaults .mk-btn3{font-family:arial;font-size:11px;padding:6px 8px;}
+/******** supplier banners end ***********/
+
+/******** Baynote start *********/
+.baynote .mk-pullout-box2.mk-subtle .mk-espot-box2-text.mk-espot-5-prod{border-top: none;}
+.baynote .mk-espot-5-prod .mk-espot-manu-logo{text-align:left;}
+.baynote .mk-espot-5-prod .mk-espot-product-image{height:110px;}
+/******** Baynote end ***********/
+
+/* EU - Electronica Banner start */
+.mk-electronica-img {
+    background: url(/wcsstore/ExtendedSitesCatalogAssetStore/cms/asset/images/europe/common/multiuse_banners/electronica_banner_on-white.jpg) no-repeat;
+    overflow: hidden;
+    padding: 12px;
+    background-color: #F9F9F9;
+}
+.mk-electronica-img h3 {
+    margin-top: 62px;
+}
+.mk-electronica-pr-img {
+    background: url(/wcsstore/ExtendedSitesCatalogAssetStore/cms/asset/images/europe/common/multiuse_banners/electronica_banner.jpg)no-repeat;
+    overflow: hidden;
+    margin-bottom: 12px;
+    display: block;
+    cursor: pointer;
+    border: 1px solid #007fac;
+    padding: 12px;
+}
+.mk-electronica-pr-img a {
+    text-decoration: none!important;
+}
+.mk-electronica-pr-img a:hover {
+    text-decoration: none;
+    border:1px solid #000000;
+}
+.mk-electronica-pr-img h3 {
+    color: #FFF!important;
+    margin-top: 55px;
+    font-size: 1.5em;
+}
+.mk-electronica-pr-img p {
+    font-weight: 700;
+    color: #C4F8FF!important;
+    margin-bottom: 12px;
+}
+.mk-promo-arm-bundles {
+	background: #f9f9f9 url(/wcsstore/ExtendedSitesCatalogAssetStore/cms/asset/images/common/multiuse_banners/promo-arm-bundles.jpg) bottom right no-repeat;
+	padding-bottom: 70px;
+}
+.mk-promo-arm-dev-tools {
+	background: #f9f9f9 url(/wcsstore/ExtendedSitesCatalogAssetStore/cms/asset/images/common/multiuse_banners/promo-arm-dev-tools.jpg) bottom right no-repeat;
+	padding-bottom: 70px;
+}
+/* EU - Electronica Banner end */
+/*------------------------------------------------
+  Start: Terminal Blocks
+  ------------------------------------------------*/
+  
+
+.mk-terminal-blocks-cta {
+background: #f9f9f9 url(/wcsstore/ExtendedSitesCatalogAssetStore/cms/asset/images/europe/common/campaign/terminal-blocks/terminal-blocks-cta.png) bottom left no-repeat !important;
+padding-top: 12px; height: 155px;
+}
+/*Terminal Blocks end */
+/*------------------------------------------------
+  Start: Microchip
+  ------------------------------------------------*/
+  
+
+.mk-promo-microchip-selector {background-image:url(/wcsstore/ExtendedSitesCatalogAssetStore/cms/asset/images/common/multiuse_banners/promo-selector-guide.jpg); background-position: bottom right;}
