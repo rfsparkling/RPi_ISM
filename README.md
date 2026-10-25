@@ -67,10 +67,6 @@ schematic and both copper layers).
 - TCXO `VC` pin floats through SJ7 (fine for the non-VC KT2520 variant only).
 - The matching network is tuned for 868 MHz; other bands need new values.
 - The SAW filter and the RF switch are not stocked at LCSC (relevant for JLCPCB assembly).
-- **To verify:** in the CON2 footprint (`2X15_SMT_CROSSPCB_ASSYM`) the odd-numbered
-  contacts (pin 1 = 3V3) sit on the hole row nearer the board edge. With the board
-  face-up over the Raspberry Pi this row lands on the Pi's outer (even-numbered) row,
-  which would swap the odd and even pins (3V3 ↔ 5V).
 - The board cut-out (for the display flex) has one distorted corner arc: the top
   edge ends at x = 40.42 mm instead of 40.17 mm.
 
