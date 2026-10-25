@@ -16,6 +16,11 @@ Raspberry Pi GPIO header, comes from the author's
 (HA7DCD), used on the Raspberry Pi 1 and 2 and produced in thousands of units
 by [TAPR](https://tapr.org/product/wspr/).
 
+<p align="center">
+  <img src="docs/img/qrpi-on-rpi1.jpg" alt="QRPi WSPR transmitter mounted on a Raspberry Pi 1 Model B" width="560">
+</p>
+<p align="center"><sub>QRPi on a Raspberry Pi 1 Model B: cross-PCB receptacle on the GPIO header, board cut-out clearing the DSI (S2) connector.</sub></p>
+
 The first member of the family, **RPi ISM v1**, is built around the Silicon Labs
 **Si4463** transceiver for the **863–870 MHz (SRD 868)** band. More families
 with newer radio chips are planned (see [Product family](#product-family)).
