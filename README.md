@@ -10,6 +10,12 @@ Hardware, firmware and software are all open source. The goal: turn any
 Raspberry Pi into a capable, well-engineered sub-GHz ISM gateway, sensor hub
 and RF lab tool, without proprietary hubs or closed binary stacks.
 
+The mechanical concept, a cross-PCB receptacle that sits directly on the
+Raspberry Pi GPIO header, comes from the author's
+[QRPi WSPR transmitter](https://web.tapr.org/meetings/DCC_2015/DCC2015-QRPi-HA7DCD-1.pdf)
+(HA7DCD), used on the Raspberry Pi 1 and 2 and produced in thousands of units
+by [TAPR](https://tapr.org/product/wspr/).
+
 The first member of the family, **RPi ISM v1**, is built around the Silicon Labs
 **Si4463** transceiver for the **863–870 MHz (SRD 868)** band. More families
 with newer radio chips are planned (see [Product family](#product-family)).
