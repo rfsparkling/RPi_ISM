@@ -41,6 +41,7 @@ dongle cannot do:
 | RF filter | TDK/EPCOS **B39871B3725U410** SAW | 869 MHz. This filter fixes the board to the 868 MHz SRD band. [Datasheet](http://www.mouser.com/ds/2/400/B3725-525464.pdf) |
 | RF switch | CEL **UPG2214TB-A** | TX/RX switching. [Datasheet](http://www.cel.com/pdf/datasheets/upg2214tb.pdf) |
 | Reference | Kyocera **KT2520F26000ACW18TAN** TCXO | 26 MHz. [Datasheet](http://www.mouser.com/ds/2/40/kt2520_gps_e_2012-838160.pdf) |
+| Antenna port | Vertical SMA (SMA1) | Population option; 50 Ω |
 | Host interface | SPI + GPIO IRQ | 2×15 receptacle (Samtec CLH-115), mates with pins 1–30 of the Raspberry Pi GPIO header (SPI0 included) |
 | Extras | Buzzer (BC817 driver), status LEDs | |
 | PCB | 2 layers, 45.1 × 34.1 mm | |
@@ -119,8 +120,13 @@ welcome in the issues.
 
 ## Licensing and clean-room policy
 
-- Everything in this repository is currently licensed under the
-  **GNU GPL v3** (see [`LICENSE`](LICENSE)).
+- **Hardware** (schematics, layouts, fabrication files, 3D and mechanical
+  files): [**CERN-OHL-S-2.0**](LICENSES/CERN-OHL-S-2.0.txt).
+- **Software and firmware** (drivers, libraries, tools):
+  [**Apache-2.0**](LICENSES/Apache-2.0.txt), so the driver can be built into
+  commercial products as well.
+- Details in [`LICENSE`](LICENSE). Earlier revisions were published under the
+  GPL v3 and remain available under it.
 - **No code under the Silicon Labs Master Software License Agreement (MSLA)
   is included.** The MSLA is the default license of the Gecko SDK and is
   not an open source license.
@@ -137,7 +143,9 @@ welcome in the issues.
 
 ```
 CAD/         Eagle design files (schematic, board) and PDF exports — rev 0V3
-datasheet/   Reference material for components and Raspberry Pi interfacing
+datasheet/   Links to component datasheets and Raspberry Pi interfacing docs
+LICENSES/    Full license texts (CERN-OHL-S-2.0, Apache-2.0)
+RPism_buzzer_crossreference_file.xlsx   Raspberry Pi J8 ↔ radio pin mapping
 top.png      Layout preview
 ```
 
