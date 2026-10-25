@@ -1,6 +1,9 @@
 # RPi ISM — open sub-GHz radio HATs for Raspberry Pi
 
-![RPi ISM v1 layout preview](top.png)
+<p align="center">
+  <img src="docs/img/rpi-ism-v1-render.jpg" alt="RPi ISM v1 3D render with an 868 MHz antenna on the SMA connector" width="720">
+</p>
+<p align="center"><sub>RPi ISM v1 (rev 0V3) on a Raspberry Pi 3 Model B with an 868 MHz antenna on the vertical SMA. HAT rendered from the PCB data (work-in-progress layout); the Raspberry Pi is a simplified mechanical mock-up.</sub></p>
 
 **RPi ISM** is a family of fully open radio add-on boards for the Raspberry Pi.
 Hardware, firmware and software are all open source. The goal: turn any
@@ -49,6 +52,8 @@ dongle cannot do:
 Design files are in [`CAD/`](CAD/) (Eagle 6.4, with PDF exports of the
 schematic and both copper layers).
 
+![RPi ISM v1 layout preview](top.png)
+
 ### Known issues in rev 0V3
 
 - PCB layout is not finished yet (unrouted nets, components outside the board outline).
@@ -56,6 +61,12 @@ schematic and both copper layers).
 - TCXO `VC` pin floats through SJ7 (fine for the non-VC KT2520 variant only).
 - The matching network is tuned for 868 MHz; other bands need new values.
 - The SAW filter and the RF switch are not stocked at LCSC (relevant for JLCPCB assembly).
+- **To verify:** in the CON2 footprint (`2X15_SMT_CROSSPCB_ASSYM`) the odd-numbered
+  contacts (pin 1 = 3V3) sit on the hole row nearer the board edge. With the board
+  face-up over the Raspberry Pi this row lands on the Pi's outer (even-numbered) row,
+  which would swap the odd and even pins (3V3 ↔ 5V).
+- The board cut-out (for the display flex) has one distorted corner arc: the top
+  edge ends at x = 40.42 mm instead of 40.17 mm.
 
 ### Planned for the next revision
 
@@ -144,6 +155,7 @@ welcome in the issues.
 ```
 CAD/         Eagle design files (schematic, board) and PDF exports — rev 0V3
 datasheet/   Links to component datasheets and Raspberry Pi interfacing docs
+docs/img/    Renders and photos
 LICENSES/    Full license texts (CERN-OHL-S-2.0, Apache-2.0)
 RPism_buzzer_crossreference_file.xlsx   Raspberry Pi J8 ↔ radio pin mapping
 top.png      Layout preview
