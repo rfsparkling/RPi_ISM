@@ -128,8 +128,12 @@ every member. Each new board adds a radio.
 
 | Family | Radio | Bands / protocols | Status |
 |---|---|---|---|
-| **RPi ISM v1** | Si4463 | Sub-GHz (G)FSK/OOK: wM-Bus, KNX-RF, proprietary FSK, 802.15.4g | In development |
+| **RPi ISM v1** | Si4463 | Sub-GHz (G)FSK/OOK: wM-Bus, KNX-RF, proprietary FSK, 802.15.4g | Layout in progress |
+| **[ionos-maximus](https://github.com/ionos-sdr/ionos-maximus-rpi-sdr)** | EFR32FG23 (Silabs radio board BRD4265B) | Sub-GHz packet modem **and** I/Q streaming to the Pi (target ~1 Msps) | Routed, first board to be completed |
 | Next generations | Newer sub-GHz and multi-protocol radios | Candidates: LoRa + FSK, Wi-SUN-class sub-GHz, dual-radio boards adding 2.4 GHz (Zigbee / Thread RCP) next to sub-GHz | Planned |
+
+Where the family is most useful in industry, and how that sets the software
+roadmap: [docs/industrial-use-cases.md](docs/industrial-use-cases.md).
 
 Chip selection for the next families is open. Suggestions and use cases are
 welcome in the issues.
