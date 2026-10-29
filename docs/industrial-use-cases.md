@@ -39,8 +39,16 @@ management.
   of a proprietary concentrator. Integrates with
   [wmbusmeters](https://github.com/wmbusmeters/wmbusmeters) (hundreds of meter
   drivers, MQTT, Home Assistant). Customers keep their AES keys and data.
-- **Software:** T1/C1 RX on RAIL (own implementation, see Licensing),
-  3-of-6 / Manchester decoding, wmbusmeters backend. S1 and TX later.
+- **No I/Q needed.** The FG23 receives wM-Bus natively in its packet modem:
+  RAIL ships ready wM-Bus PHYs, the Series 2 radio does the T-mode 3-of-6
+  frame coding in hardware, and `RAIL_WMBUS_Config()` enables simultaneous
+  T + C mode reception (`PHY_wMbus_ModeTC_M2O_100k_frameA`; mode and frame
+  type reported per packet). See Silicon Labs AN1119.
+- **Software:** FG23 firmware on RAIL forwards received telegrams (+ RSSI,
+  timestamp) to the Pi as frames over the existing link; wmbusmeters backend
+  on the Pi does DLL/TPL parsing, decryption and meter drivers. S1 and TX later.
+  Known limit: frame A and frame B cannot be received with the same PHY
+  configuration (mode C frame B needs its own setup).
 - **Value: very high. Market pull is time-bound (2027 deadline).**
 
 ### 2. Sub-GHz spectrum monitoring and interference hunting
@@ -132,9 +140,10 @@ the FG23 already supports:
    at 1 Msps. Work: EUSART secondary + LDMA + DRDY framing on the FG23, the
    `libionos` ring buffer on the Pi (spidev, DMA, sequence/overflow checks),
    a SoapySDR module and an SDR++ source. Measurements M1–M5 run on this path.
-2. **Packet mode on RAIL (use cases 1, 4).** wM-Bus T1/C1 receiver on the
-   FG23, delivered to the Pi over the same link as frames; wmbusmeters
-   backend.
+2. **Packet mode on RAIL (use cases 1, 4).** Native wM-Bus T1/C1 receiver on
+   the FG23 (no I/Q involved), telegrams delivered to the Pi over the same
+   link as frames; wmbusmeters backend. Independent of the I/Q work and the
+   M1–M5 measurements, so it can run in parallel or go first.
 3. **Test-station API (use case 3).** Python package on the Pi: frequency
    offset and power from I/Q, PER from the packet mode, CW / PN9 stimulus.
 4. **Si4463 driver** (`libsi446x`) reuses the Pi-side framework for the
@@ -159,4 +168,5 @@ SPI secondary clock, M2 ENOB, M3 usable bandwidth beyond 270 kHz, M4 sustained
 - FG23 target protocols (Amazon Sidewalk, mioty, Wireless M-Bus, Z-Wave, proprietary): [eeNews Europe](https://www.eenewseurope.com/en/secure-sub-1-ghz-socs-combine-long-range-rf-energy-efficiency)
 - RAIL library license: [Gecko SDK License.txt](https://github.com/SiliconLabs/sdk_support/blob/main/License.txt)
 - FG23 I/Q capture figures, link modes and measurement plan: [ionos-maximus-rpi-sdr README](https://github.com/ionos-sdr/ionos-maximus-rpi-sdr)
+- FG23 native wM-Bus: [AN1119 / RAIL wM-Bus guide](https://docs.silabs.com/rail/3.0.0/rail-wmbus-apps-with-efr32/02-limitations), [RAIL wM-Bus API](https://docs.silabs.com/rail/2.16.5/rail-api/wmbus)
 - LoRa SDR decoder: [gr-lora_sdr](https://github.com/tapparelj/gr-lora_sdr)
